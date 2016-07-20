@@ -102,6 +102,9 @@ GEM
       rack (>= 1.0, < 3)
     omniauth-facebook (3.0.0)
       omniauth-oauth2 (~> 1.2)
+    omniauth-github (1.1.2)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
@@ -188,6 +191,7 @@ DEPENDENCIES
   materialize-sass
   omniauth
   omniauth-facebook
+  omniauth-github
   rails (= 4.2.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
