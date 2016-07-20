@@ -16,7 +16,12 @@ gem 'toastr-rails'
 gem 'omniauth'
 
 gem 'omniauth-facebook'
-gem 'omniauth-github'
+gem 'omniauth-github' #task4
+
+gem 'activeadmin', github: 'activeadmin' # task5
+gem 'active_skin'
+
+
 
 
 group :development, :test do
