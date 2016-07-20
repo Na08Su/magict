@@ -3,6 +3,9 @@
 
     <h2>ログイン</h2>
     <%= link_to "login with Facebook", user_omniauth_authorize_path(:facebook), class: "btn blue darken-4" %>
+    <br/>
+    <%= link_to "login with Github", user_omniauth_authorize_path(:github), class: "btn grey darken-2" %>
+
 
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
