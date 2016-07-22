@@ -21,6 +21,8 @@ gem 'omniauth-github' #task4
 gem 'activeadmin', github: 'activeadmin' # task5
 gem 'active_skin'
 
+gem 'paperclip', '~> 5.0'
+
 
 
 
