@@ -71,6 +71,7 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -94,6 +95,8 @@ GEM
     formtastic (3.1.4)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     has_scope (0.6.0)
@@ -199,6 +202,7 @@ GEM
       polyamorous (~> 1.3)
     rdoc (4.2.2)
       json (~> 1.4)
+    redcarpet (3.3.4)
     responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
@@ -246,8 +250,10 @@ DEPENDENCIES
   active_skin
   activeadmin!
   byebug
+  coderay (~> 1.1)
   coffee-rails (~> 4.1.0)
   devise
+  friendly_id (~> 5.1)
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
@@ -256,6 +262,7 @@ DEPENDENCIES
   omniauth-github
   paperclip (~> 5.0)
   rails (= 4.2.4)
+  redcarpet (~> 3.3, >= 3.3.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

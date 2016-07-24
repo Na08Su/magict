@@ -22,6 +22,10 @@ gem 'activeadmin', github: 'activeadmin' # task5
 gem 'active_skin'
 
 gem 'paperclip', '~> 5.0'
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+gem 'coderay', '~> 1.1'
+
+gem 'friendly_id', '~> 5.1'
 
 
 
