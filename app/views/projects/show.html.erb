@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row ">
   <div class="col m4">
     <div class="card z-depth-2">
       <div class="center">
@@ -21,7 +21,7 @@
         <h5><%= @project.name %></h5>
         <hr>
         <%= @project.content %>
-        <div class="collection">
+        <div class="collection" data-no-turbolink>
           <% @tasks.each do |task| %>
             <% if task.header %>
               <div class="collection-item active">
