@@ -5,6 +5,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @tasks   = @project.tasks
+    @tasks   = @project.tasks.order(:tag)
   end
 end
