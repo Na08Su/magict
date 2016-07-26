@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout', :edit => 'profile' }, :controllers => { :omniauth_callbacks => 'omniauth_callbacks' }
 
-
-  root 'projects#index'
   get 'pages/about'
+  get '/myprojects' => 'projects#list'
+  post '/free' => 'charges#free'
+  root 'projects#index'
 
   resources :projects do
     resources :tasks, only: [:show]

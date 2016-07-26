@@ -10,7 +10,23 @@ body {
 main {
   flex: 1 0 auto;
   }
+/* 大きいimageを小さくする */
+.resize{
+  height: 450px;
+  // height: 60%;
+  width: 100%;
+}
 
 .container {
   width: 95%;
+}
+
+.avatar-small {
+  width: 50px;
+}
+.avatar-medium{
+  width: 80px;
+}
+.mask{
+  z-index: 99;
 }
