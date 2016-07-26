@@ -4,7 +4,7 @@ module ApplicationHelper
     if user.image
       user.image
     else
-      return "https://www.gravatar.com/avatar/#{ gravatar_id }.jpg?d=identicon&s=40"
+      return "https://www.gravatar.com/avatar/#{ gravatar_id }.jpg?d=identicon&s=50"
     end
   end
 
