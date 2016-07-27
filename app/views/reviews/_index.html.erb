@@ -10,7 +10,7 @@
     <div class="col m10">
       <div>
         <strong><%= r.user.name %></strong>
-        <span class="right"><%= r.created_at %></span>
+        <span class="right"><%= timeago(r.created_at) %></span>
       </div>
       <div id="stars_<%= r.id %>"></div>
       <div><%= r.comment %></div>
@@ -26,3 +26,10 @@
     });
   </script>
 <% end %>
+
+<script>
+  $(function()
+  {
+    $('time.timeago').timeago();
+  })
+</script>
