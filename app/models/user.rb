@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 25 }
   has_many :subscriptions #subscriptionとは....課金的な意味合い?
   has_many :projects, through: :subscriptions
-
+  has_many :reviews
   # after_create :send_notification
 
   # def send_notification

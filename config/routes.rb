@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tasks, only: [:show]
   end
+
+  resources :projects do
+    resources :reviews, only: [:create, :destroy]
+
+  end
 end
