@@ -28,6 +28,7 @@ gem 'coderay', '~> 1.1'
 gem 'friendly_id', '~> 5.1'
 gem 'active_admin-sortable_tree', '~> 0.2.1'
 gem 'stripe'
+gem 'figaro', '~> 1.1', '>= 1.1.1' # HerokuやDokkuで使う環境変数を管理するGem「laserlemon/figaro」の紹介です。 モダンなWebアプリケーションの設計の指針とも言える「Twelve-Factor App」を実現するのを手助けしてくれる素晴らしいGemです。
 
 
 
