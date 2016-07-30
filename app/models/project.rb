@@ -23,4 +23,8 @@ class Project < ActiveRecord::Base
   def average_rating
     reviews.blank? ? 0 : reviews.average(:star).round(2)
   end
+
+  def price_in_cents #日本の円にするなら必要ない
+    price*100
+  end
 end
