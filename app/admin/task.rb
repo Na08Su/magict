@@ -17,7 +17,7 @@ ActiveAdmin.register Task do
     actions
   end
 
-  form do |f|
+  form do |f| #task11
     f.inputs do
       input :project, label: 'project'
       input :title, label: 'title'
