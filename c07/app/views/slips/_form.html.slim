@@ -1,0 +1,24 @@
+= nested_form_for slip, builder: ActionView::Helpers::BulmaFormBuilder, html: { id: 'slip_form' } do |f|
+  h4.sub-title.blue2.w50
+    = t('activerecord.models.slip')
+
+  table.table.is-bordered.form.dark.w50
+    tr
+      th = f.label :code
+      td = f.text_field :code, class: 'w30'
+    tr
+      th = f.label :financial_year
+      td = f.text_field :financial_year, class: 'w30'
+    tr
+      th = f.label :slip_type
+      td = f.select :slip_type_id, slip_types_for_select, { include_blank: t('form.please_select') }, { class: 'w30' }
+    tr
+      th = f.label :slip_date
+      td = f.text_field :slip_date, class: 'w30 datetime-picker'
+    - unless slip.new_record?
+      tr
+        th = f.label :created_at
+        td = f.text_field :created_at, class: 'w30 datetime-picker is-readonly'
+  = render 'slip_details/form', f: f, slip: slip
+
+  = render 'shared/form_buttons', object: slip

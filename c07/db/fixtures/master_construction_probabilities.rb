@@ -1,0 +1,12 @@
+MasterConstructionProbability.seed(:id,
+  { id: 1,  code: '@0',  name: '完成'     },
+  { id: 2,  code: '@1',  name: '決定A'    },
+  { id: 3,  code: '@2',  name: '決定B'    },
+  { id: 4,  code: '@3',  name: '決定C'    },
+  { id: 5,  code: 'A　', name: '100%着工' },
+  { id: 6,  code: 'B　', name: '80%以上'  },
+  { id: 7,  code: 'C　', name: '50%以上'  },
+  { id: 8,  code: 'D　', name: '50%未満'  },
+  { id: 9,  code: 'ZZ',  name: '取消し'   },
+  { id: 10, code: 'E　', name: '情報'     },
+)

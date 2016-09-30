@@ -1,0 +1,25 @@
+.box
+  = search_form_for @query, remote: true, url: show_modal_companies_path, method: :post do |f|
+    = f.search_field :name_cont, placeholder: t('.name')
+    = f.submit
+
+table#modal-company-table.table.is-bordered
+  caption.text-right = page_entries_info(companies)
+  thead
+    th = t('.name')
+    th = t('.address')
+  tbody
+    - companies.each do |company|
+      = content_tag(:tr, '', data: company.attributes, 'data-full_address': company.full_address)
+        td = truncate_with_hint(company.name, class: 'hint--top-right')
+        td = truncate_with_hint(company.full_address)
+
+= paginate companies, remote: true, method: :post
+
+javascript:
+  $(document).on('click', '#modal-company-table tbody tr', function() {
+    $('#company_relation_partner_company_id').val( $(this).data('id') );
+    $('#partner_company_name').val( $(this).data('name') );
+    $('#partner_company_address').val( $(this).data('full_address') );
+    $('.modal-close').click();
+  });

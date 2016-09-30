@@ -1,0 +1,164 @@
+// select_box arrow position
+.select:after {
+  right: 10px;
+}
+
+.button.is-light {
+  border-color: #ccc;
+}
+
+.control input[type="radio"] {
+  margin-right: 5px;
+}
+
+.modal-content { width: 85%; }
+
+.nav {
+  //background-color: #373737;
+  background: #5b6166; /* Old browsers */
+  background: -moz-linear-gradient(top, #5b6166 0%, #373737 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #5b6166 0%,#373737 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #5b6166 0%,#373737 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  min-height: 38px;
+  padding: 0 31px;
+}
+
+.nav-item a,
+a.nav-item {
+  color: #FFF;
+}
+
+.nav-item a:hover,
+a.nav-item:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+a.nav-title {
+  font-size: 1.2em;
+}
+
+nav.nav .nav-item {
+  padding: 5px 10px;
+  text-shadow: black 0 1px 0;
+}
+
+.section {
+  padding: 30px 20px;
+}
+
+/* 四角いタグの定義 */
+// square-tag
+.tag-s {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f5f7fa;
+  border-radius: 2px;
+  color: #69707a;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 12px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  line-height: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 70px;
+}
+
+.tag-s .delete, .tag-s .modal-close {
+  margin-left: 4px;
+  margin-right: -6px;
+}
+
+.tag-s.is-white {
+  background-color: #fff;
+  color: #111;
+}
+
+.tag-s.is-black {
+  background-color: #111;
+  color: #fff;
+}
+
+.tag-s.is-light {
+  background-color: #f5f7fa;
+  color: #69707a;
+}
+
+.tag-s.is-dark {
+  background-color: #69707a;
+  color: #f5f7fa;
+}
+
+.tag-s.is-primary {
+  background-color: #1fc8db;
+  color: white;
+}
+
+.tag-s.is-info {
+  background-color: #42afe3;
+  color: white;
+}
+
+.tag-s.is-success {
+  background-color: #97cd76;
+  color: white;
+}
+
+.tag-s.is-warning {
+  background-color: #fce473;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.tag-s.is-danger {
+  background-color: #ed6c63;
+  color: white;
+}
+
+span.select.is-disabled select {
+  background-color: #f5f7fa;
+}
+
+.input[readonly], [readonly].textarea, .input.is-readonly, .is-readonly.textarea {
+  background-color: #f5f7fa;
+  border-color: #d3d6db;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.input[readonly]::-moz-placeholder, [readonly].textarea::-moz-placeholder, .input.is-readonly::-moz-placeholder, .is-readonly.textarea::-moz-placeholder {
+  color: rgba(34, 35, 36, 0.3);
+}
+
+.input[readonly]::-webkit-input-placeholder, [readonly].textarea::-webkit-input-placeholder, .input.is-readonly::-webkit-input-placeholder, .is-readonly.textarea::-webkit-input-placeholder {
+  color: rgba(34, 35, 36, 0.3);
+}
+
+.input[readonly]:-moz-placeholder, [readonly].textarea:-moz-placeholder, .input.is-readonly:-moz-placeholder, .is-readonly.textarea:-moz-placeholder {
+  color: rgba(34, 35, 36, 0.3);
+}
+
+.input[readonly]:-ms-input-placeholder, [readonly].textarea:-ms-input-placeholder, .input.is-readonly:-ms-input-placeholder, .is-readonly.textarea:-ms-input-placeholder {
+  color: rgba(34, 35, 36, 0.3);
+}
+
+.button.is-blue {
+  background-color: #4478D4;
+  border-color: transparent;
+  color: white;
+}
+
+.button.is-blue:hover, .button.is-blue:focus, .button.is-blue.is-active {
+  background-color: #1F5CC4;
+  border-color: transparent;
+  color: white;
+}

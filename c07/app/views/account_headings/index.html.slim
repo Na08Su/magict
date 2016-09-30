@@ -1,0 +1,51 @@
+= title_tag(resource: AccountHeading)
+
+= search_form_for @query, class: 'search-form', builder: ActionView::Helpers::BulmaFormBuilder do |f|
+  fieldset
+    legend
+      = fa_icon 'search', text: t('form.search.condition')
+    .control.is-grouped
+      .control
+        label = t('.code')
+        p = f.search_field :code_cont, class: 'input is-small'
+      .control
+        label = t('.name')
+        p = f.search_field :name_cont, class: 'input is-small'
+      .control
+        label = t('.division')
+        p = f.select :division_eq, AccountHeading.divisions_i18n.invert.map { |k, v| [k, AccountHeading.divisions[v]] }, { include_blank: true }, { class: 'w120px' }
+      .control style='width:55px'
+        = content_tag(:p, class: 'is-button') do
+          = button_tag(class: 'button is-small is-info') do
+            span.icon.is-small = fa_icon 'search'
+            span.is-bold = t('form.submit.search')
+      .control style='width:55px'
+        = content_tag(:p, class: 'is-button') do
+          = link_to '#', class: 'change-action-button button is-small is-success', data: { action_url: account_headings_path(format: :csv) } do
+            span.icon.is-small = fa_icon 'download'
+            span.is-bold = t('form.button.csv_download')
+
+table.table.is-bordered.index
+  caption
+    .level.mb5
+      .level-left
+        .level-item
+          = link_to new_account_heading_path, class: 'button is-small is-blue' do
+            span.icon.is-small = fa_icon 'plus'
+            span.is-bold = t('form.submit.create')
+      .level-right
+        .level-item
+          = page_entries_info(@account_headings)
+
+  thead
+    th = t('.code')
+    th = t('.name')
+    th = t('.division')
+  tbody
+    - @account_headings.each do |account_heading|
+      tr[class="#{ account_heading.deleted? ? 'deleted' : ''}"]
+        td = link_to account_heading.code, edit_account_heading_path(account_heading)
+        td = account_heading.name
+        td = account_heading.division_i18n
+
+= paginate @account_headings

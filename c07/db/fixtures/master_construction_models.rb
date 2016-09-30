@@ -1,0 +1,22 @@
+MasterConstructionModel.seed(
+  { id:  1, name: '一括工事1000以上',       name_short: '一括',       code_order:  1 },
+  { id:  2, name: '配管工事1000以上',       name_short: '配管',       code_order: 10 },
+  { id:  3, name: 'ダクト工事1000以上',     name_short: 'ダクト',     code_order:  7 },
+  { id:  4, name: '配管販売',               name_short: '販売',       code_order: 15, bundle_flag: true },
+  { id:  5, name: '防災工事1000以上',       name_short: '防災',       code_order:  4 },
+  { id:  7, name: 'ダクト販売',             name_short: '販売',       code_order: 16, bundle_flag: true },
+  { id:  8, name: 'その他販売（応援工事）', name_short: '工事販売',   code_order: 14, bundle_flag: true },
+  { id:  9, name: 'その他工事（一括発注）', name_short: '発注',       code_order: 13, bundle_flag: true },
+  { id: 10, name: '雑工事500-1000未満',     name_short: '雑大',       code_order: 17 },
+  { id: 11, name: '雑工事100-500未満',      name_short: '雑中',       code_order: 18 },
+  { id: 12, name: '雑工事0-100未満',        name_short: '雑小',       code_order: 19 },
+  { id: 13, name: '雑一括100-1000未満',     name_short: '雑一括大',   code_order:  2 },
+  { id: 14, name: '雑一括100未満',          name_short: '雑一括小',   code_order:  3 },
+  { id: 15, name: '雑配管100-1000未満',     name_short: '雑配管大',   code_order: 11 },
+  { id: 16, name: '雑配管100未満',          name_short: '雑配管小',   code_order: 12 },
+  { id: 17, name: '雑ダクト100-1000未満',   name_short: '雑ダクト大', code_order:  8 },
+  { id: 18, name: '雑ダクト100未満',        name_short: '雑ダクト小', code_order:  9 },
+  { id: 19, name: '雑防災100-1000未満',     name_short: '雑防災大',   code_order:  5 },
+  { id: 20, name: '雑防災100未満',          name_short: '雑防災小',   code_order:  6 },
+)
+

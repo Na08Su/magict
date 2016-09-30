@@ -1,0 +1,6 @@
+= title_tag(resource: @budget, i18n_key: :edit)
+
+= render 'informations', budget: @budget, construction: @budget.contract_construction
+= render 'shared/error_message', object: @budget
+= render 'form', budget: @budget
+= render 'shared/modal'

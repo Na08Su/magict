@@ -1,0 +1,2 @@
+span class="page#{ ' current' if page.current? }"
+  == link_to page, url, { remote: remote, method: method, class: "button is-small#{ ' is-disabled is-dark' if page.current? }" }

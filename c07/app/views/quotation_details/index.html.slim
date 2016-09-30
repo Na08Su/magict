@@ -1,0 +1,128 @@
+h3.title = t('.title')
+
+= render 'shared/error_message', object: @quotation
+
+= nested_form_for @quotation, url: quotation_create_details_path(@quotation), method: :post,
+    builder: ActionView::Helpers::BulmaFormBuilder, html: { id: 'quotation_details_form' } do |f|
+
+  h4.sub-title.blue2.w50
+    = t('.quotation_info')
+    = spacer(10)
+    small.gray = "#{ t('.quotation.no') } : #{ @quotation.no } #{ @quotation.name }"
+
+  table.table.is-bordered.dark.quotation_details_form
+    caption.text-left
+      .mb10.pl10
+        = f.link_to_add(:quotation_details, data: { target: '#details' }, class: 'button is-small is-info is-bold') do
+          span.icon.is-small = fa_icon 'plus'
+          span 詳細行追加
+    thead
+      tr
+        th
+        th = t('.cost_code') 
+        th = t('.name1')
+        th = t('.name2')
+        th = t('.unit')
+        th = t('.submitted_quantity_with_br_tag').html_safe
+        th = t('.submitted_price')
+        th = t('.submitted_amount')
+        th = t('.initial_cost_quantity_with_br_tag').html_safe
+        th = t('.initial_cost_price')
+        th = t('.initial_cost_amount')
+        th
+  
+    tbody#details.sortable
+      - @quotation.quotation_details.sort_by(&:row_number).each do |quotation_detail|
+        = f.fields_for :quotation_details, quotation_detail, wrapper: false do |detail|
+          tr.fields
+            td = detail.text_field :row_number, value: detail.object.row_number, class: 'is-readonly row_number', tabindex: '-1'
+            td = detail.select :cost_id, costs_for_select, { include_blank: t('form.please_select') }, { class: 'w100' }
+            td = detail.text_field :name1, value: detail.object.name1
+            td = detail.text_field :name2, value: detail.object.name2
+            td = detail.text_field :unit,  value: detail.object.unit
+            td.detail-sq = detail.comma_delimited_field :submitted_quantity, value: detail.object.submitted_quantity
+            td.detail-sp = detail.comma_delimited_field :submitted_price,    value: detail.object.submitted_price
+            td.detail-sa = text_field_tag :submitted_amount, (detail.object.submitted_quantity.to_i * detail.object.submitted_price.to_i).to_s(:delimited),
+                                          class: 'input is-small text-right is-disabled', tabindex: '-1'
+            td.detail-icq = detail.comma_delimited_field :initial_cost_quantity, value: detail.object.initial_cost_quantity
+            td.detail-icp = detail.comma_delimited_field :initial_cost_price,    value: detail.object.initial_cost_price
+            td.detail-ica = text_field_tag :initial_cost_amount, (detail.object.initial_cost_quantity.to_i * detail.object.initial_cost_price.to_i).to_s(:delimited),
+                                           class: 'input is-small text-right is-disabled', tabindex: '-1'
+            td.text-center
+              div.hint--top-left data-hint="#{ t('form.delete_this_row') }"
+                div.delete-icon-wrapper
+                  = detail.link_to_remove fa_icon('minus-square'), tabindex: '-1'
+    tfoot
+      tr.total
+        td.text-right colspan="5" = t('form.total')
+        td colspan="3"
+          = content_tag(:div, class: 'amount') do
+            = content_tag(:span, id: 'submitted_total_amount') { @quotation.submitted_total_amount.to_s(:delimited) }
+            = spacer(1)
+            = t('unit.money')
+        td colspan="3"
+          = content_tag(:div, class: 'amount') do
+            = content_tag(:span, id: 'initial_cost_total_amount') { @quotation.initial_cost_total_amount.to_s(:delimited) }
+            = spacer(1)
+            = t('unit.money')
+        td
+        
+
+
+  .control.is-grouped
+    .control = link_to t('button.back'), edit_quotation_path(@quotation), class: 'button'
+    .control = link_to @quotation.quotation_details.count.zero? ? t('form.submit.create') : t('form.submit.update'), '#', id: 'submit_button', class: 'button is-info'
+
+javascript:
+  $('tbody.sortable').sortable();
+  $('tbody.sortable').bind('sortstop', function() {
+    $(this).find('.row_number').each(function(idx) {
+      $(this).val(idx + 1);
+    });
+  });
+
+  $('#submit_button').on('click', function(event) {
+    event.preventDefault();
+    $('tbody.sortable tr').find('.row_number').each(function(idx) {
+      $(this).val(idx + 1);
+    });
+    $('#quotation_details_form').submit();
+  });
+
+  // TODO: とりあえずゴリゴリ書くけど、もっと簡略化したい。knockoutやVueで
+  // 提出金額 autosum
+  $(document).on('change', 'input[type=text][name$=submitted_quantity\\]], input[type=text][name$=submitted_price\\]]', function() {
+    var sq = parseInt( $(this).closest('tr').find('.detail-sq input[type="hidden"]').val() );
+    var sp = parseInt( $(this).closest('tr').find('.detail-sp input[type="hidden"]').val() );
+    if(sq && sp) {
+      var saElem = $(this).closest('tr').find('.detail-sa input');
+      setDelimitedNumber(saElem, sq * sp);
+    }
+
+    // 合計算出
+    var total_amount = 0;
+    var element = $('#submitted_total_amount');
+    $('input[type=text][name=submitted_amount]').each(function() {
+      total_amount += Number($(this).val().replace(/,/g, ''));
+    });
+    setDelimitedNumber(element, total_amount);
+  });
+
+  // 原価金額 autosum
+  $(document).on('change', 'input[type=text][name$=initial_cost_quantity\\]], input[type=text][name$=initial_cost_price\\]]', function() {
+    var icq = parseInt( $(this).closest('tr').find('.detail-icq input[type="hidden"]').val() );
+    var icp = parseInt( $(this).closest('tr').find('.detail-icp input[type="hidden"]').val() );
+    if(icq && icp) {
+      var icaElem = $(this).closest('tr').find('.detail-ica input');
+      setDelimitedNumber(icaElem, icq * icp);
+    }
+
+    // 合計算出
+    var total_amount = 0;
+    var element = $('#initial_cost_total_amount');
+    $('input[type=text][name=initial_cost_amount]').each(function() {
+      total_amount += Number($(this).val().replace(/,/g, ''));
+    });
+    setDelimitedNumber(element, total_amount);
+  });
+

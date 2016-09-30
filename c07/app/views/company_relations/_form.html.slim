@@ -1,0 +1,84 @@
+= form_for company_relation, builder: ActionView::Helpers::BulmaFormBuilder do |f|
+
+  .pa3
+    .level-left
+      .level-item
+        h4.fs14 取引先情報
+      .level-item
+        = link_to t('button.request_to', name: t('activerecord.models.company')), show_modal_companies_path, remote: true, method: :post, data: { target: '#modal' }, class: 'modal-button button is-small'
+
+  table.table.is-bordered.form
+    tr
+      th = label :company_relation, :partner_company_name
+      td
+        = text_field_tag :partner_company_name, params[:partner_company_name].blank? ? company_relation.partner_company.try(:name) : params[:partner_company_name], class: 'w30 input is-small readonly-color', readonly: true
+        = f.hidden_field :partner_company_id
+    tr
+      th = label :company_relation, :partner_company_address
+      td = text_field_tag :partner_company_address, params[:partner_company_address].blank? ? company_relation.partner_company.try(:full_address) : params[:partner_company_address], class: 'w30 input is-small readonly-color', readonly: true
+
+  h4.fs14 詳細情報
+  table.table.is-bordered.form
+    tr
+      th = f.label :use_type
+      td
+        = f.check_box :customer_flag, { class: 'mr5' }
+        = f.label :customer_flag
+        = f.check_box :vendor_flag, { class: 'ml10 mr5' }
+        = f.label :vendor_flag
+        = f.check_box :payee_flag, { class: 'ml10 mr5' }
+        = f.label :payee_flag
+    tr
+      th = f.label :code
+      td = f.text_field :code, class: 'w30'
+    tr
+      th = f.label :own_company_code
+      td = f.text_field :own_company_code, class: 'w30'
+    tr
+      th = f.label :contact_person
+      td = f.text_field :contact_person, class: 'w30'
+    tr
+      th = f.label :contact_tel
+      td = f.text_field :contact_tel, class: 'w30'
+    tr
+      th = f.label :contact_fax
+      td = f.text_field :contact_fax, class: 'w30'
+    tr
+      th = f.label :basic_contract_day
+      td = f.date_field :basic_contract_day
+    tr
+      th = f.label :start_up_date
+      td = f.date_field :start_up_date
+    tr
+      th = f.label :recital1
+      td = f.text_field :recital1, class: 'w30'
+    tr
+      th = f.label :recital2
+      td = f.text_field :recital2, class: 'w30'
+
+  = render 'customer_form', f: f
+  = render 'vendor_form', f: f
+  = render 'payee_form', f: f
+
+  = render 'shared/form_buttons', object: company_relation
+
+javascript:
+  toggleUse('customer');
+  toggleUse('vendor');
+  toggleUse('payee');
+
+  $(document).on('click', '#company_relation_customer_flag', function() {
+    toggleUse('customer');
+  });
+
+  $(document).on('click', '#company_relation_vendor_flag', function() {
+    toggleUse('vendor');
+  });
+
+  $(document).on('click', '#company_relation_payee_flag', function() {
+    toggleUse('payee');
+  });
+
+  function toggleUse(kind) {
+    $('#' + kind + '_table').toggle($('#company_relation_' + kind + '_flag').prop('checked'));
+  }

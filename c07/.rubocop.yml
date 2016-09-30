@@ -1,0 +1,130 @@
+Rails:
+  Enabled: true
+
+Rails/OutputSafety:
+  Exclude:
+    - 'config/application.rb'
+
+Lint/AssignmentInCondition:
+  Exclude:
+    - 'bin/spring'
+
+Lint/BlockAlignment:
+  Enabled: true
+
+Lint/HandleExceptions:
+  Exclude:
+    - 'bin/rails'
+    - 'bin/rake'
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+    - 'lib/json_report_builder/**/*'
+
+Metrics/LineLength:
+  Max: 192
+
+Metrics/ClassLength:
+  Max: 100
+  Exclude:
+    - 'lib/json_report_builder/**/*'
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/AccessModifierIndentation:
+  Enabled: false
+
+Style/AlignParameters:
+  Enabled: false
+
+Style/AsciiComments:
+  Exclude:
+    - 'db/seeds/seed_helper.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: true
+
+Style/ColonMethodCall:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyLines:
+  Enabled: true
+
+Style/EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+Style/EmptyLinesAroundBlockBody:
+  Enabled: true
+
+Style/EndOfLine:
+  Enabled: true
+
+Style/ExtraSpacing:
+  Enabled: true
+
+Style/HashSyntax:
+  Enabled: true
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Style/IndentationConsistency:
+  Enabled: true
+
+Style/IndentationWidth:
+  Enabled: true
+
+Style/LeadingCommentSpace:
+  Enabled: true
+
+Style/NumericLiterals:
+  MinDigits: 15
+
+Style/StringLiterals:
+  Enabled: true
+
+Style/TrailingCommaInLiteral:
+  Enabled: true
+
+Style/TrailingWhitespace:
+  Enabled: true
+
+Style/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+
+Style/SignalException:
+  EnforcedStyle: semantic
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - Gemfile
+    - bin/*
+    - config/puma.rb
+    - db/schema.rb
+    - db/migrate/*
+    - db/fixtures/*
+    - submodules/zengin-code/bin/**
+    - spec/spec_helper.rb
+    - spec/rails_helper.rb
+    - vender/bundle/**

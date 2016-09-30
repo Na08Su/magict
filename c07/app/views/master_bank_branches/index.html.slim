@@ -1,0 +1,44 @@
+h3.title = t('.title')
+
+.box.w30
+  p #{ t('.bank_code') } : #{ @master_bank.code }
+  p #{ t('.bank_name') } : #{ @master_bank.name }
+
+  br
+
+  .control.has-addons.has-addons-lefted
+    = search_form_for @query, :url => { :action => :index } do |f|
+      .control.has-icon
+        = f.search_field :code_eq,   placeholder: t('.code'), class: 'input'
+        i.fa.fa-search
+      .control.has-icon
+        = f.search_field :name_cont, placeholder: t('.name'), class: 'input'
+        i.fa.fa-search
+      .control
+        = f.submit class: 'button is-info'
+
+nav.level
+  .level-left
+    .level-item
+      = link_to new_master_bank_master_bank_branch_path, class: 'button is-small' do
+        span.icon.is-small = fa_icon 'plus-square-o'
+        span = t('form.submit.create')
+  .level-right
+
+table.table.is-bordered.index
+  thead
+    tr
+      th = t('.code')
+      th = t('.name')
+      th = t('.name_kana')
+
+  tbody
+    - @master_bank_branches.each do |branch|
+      tr
+        td = link_to branch.code, edit_master_bank_master_bank_branch_path(id: branch)
+        td = branch.name
+        td = branch.name_kana
+br
+
+p = paginate @master_bank_branches
+p = link_to 'top', root_path

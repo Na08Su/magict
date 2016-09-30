@@ -1,0 +1,56 @@
+= title_tag(resource: Quotation)
+
+= search_form_for @query, class: 'search-form', builder: ActionView::Helpers::BulmaFormBuilder do |f|
+  fieldset.is-pulled-left.bg-light-blue2
+    legend
+      = fa_icon 'search', text: '検索'
+    .control.is-grouped
+      .control
+        label = t('.no')
+        p.control = f.search_field :no_cont, class: 'input is-small'
+      .control
+        label = t('.name')
+        p.control = f.search_field :name_cont, class: 'input is-small'
+      .control
+        label = t('.submitted_date')
+        p.control = f.search_field :submitted_date_eq, class: 'input is-small datetime-picker'
+      .control style="width:55px"
+        = content_tag(:p, class: 'is-button') do
+          = button_tag(class: 'button is-small is-info') do
+            span.icon.is-small = fa_icon 'search'
+            span.is-bold = t('form.submit.search')
+
+  fieldset.is-pulled-left.ml20.bg-light-gray
+    legend &nbsp;
+    .control
+      label = spacer(1)
+      p = link_to new_quotation_path, class: 'button is-small is-blue' do
+        span.icon.is-small = fa_icon 'plus'
+        span.is-bold = t('form.submit.create')
+
+table.table.is-bordered.index.quotation_index
+  caption
+    .level
+      .level-left
+      .level-right
+        .level-item
+          = page_entries_info(@quotations)
+
+  thead
+    th = t('.no')
+    th = t('.name')
+    th = t('.submitted_date')
+    th = t('.created_date')
+    th = t('.submitted_total_amount')
+    th = t('.initial_cost_total_amount')
+  tbody
+    - @quotations.each do |quotation|
+      tr
+        td = link_to quotation.no, edit_quotation_path(quotation)
+        td = quotation.name
+        td.text-center = l(quotation.submitted_date) if quotation.submitted_date
+        td.text-center = l(quotation.created_at.to_date)
+        td.text-right = quotation.submitted_total_amount.try(:to_s, :delimited)
+        td.text-right = quotation.initial_cost_total_amount.try(:to_s, :delimited)
+
+= paginate @quotations

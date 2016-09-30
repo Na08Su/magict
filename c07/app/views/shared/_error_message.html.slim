@@ -1,0 +1,8 @@
+- if object && object.errors.any?
+  = content_tag(:article, class: 'message is-danger') do
+    .message-header
+      = t('errors.template.header', model: object.model_name.human, count: object.errors.count)
+    .message-body
+      - object.errors.full_messages.each do |msg|
+        = msg
+        br

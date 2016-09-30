@@ -1,0 +1,57 @@
+= title_tag(resource: Business)
+
+= search_form_for @query, class: 'search-form', builder: ActionView::Helpers::BulmaFormBuilder do |f|
+  fieldset.is-pulled-left.bg-light-blue2
+    legend
+      = fa_icon 'search', text: t('form.search.condition')
+    .control.is-grouped
+      .control
+        label = t('.code')
+        p.control = f.search_field :code_cont, class: 'input is-small'
+      .control
+        label = t('.name')
+        p.control = f.search_field :name_cont, class: 'input is-small'
+      .control
+        label = t('.financial_start_year')
+        p.control = f.search_field :financial_start_year_eq, class: 'input is-small'
+      .control style="width:45px"
+        = content_tag(:p, class: 'is-button') do
+          = button_tag(class: 'change-action-button button is-small is-info', data: { action_url: businesses_url }) do
+            span.icon.is-small = fa_icon 'search'
+            span.is-bold = t('form.submit.search')
+      .column style="width:55px"
+        = content_tag(:p, class: 'is-button') do
+          = button_tag(class: 'change-action-button button is-small is-success', data: { action_url: export_excel_businesses_url }) do
+            span.icon.is-small = fa_icon 'file-text'
+            span.is-bold = t('form.submit.output')
+
+  fieldset.is-pulled-left.ml20.bg-light-gray
+    legend &nbsp;
+    .control
+      label = spacer(1)
+      p = link_to new_business_path, class: 'button is-small is-blue' do
+        span.icon.is-small = fa_icon 'plus'
+        span.is-bold = t('form.submit.create')
+
+table.table.is-bordered.index
+  caption
+    .level
+      .level-left
+      .level-right
+        .level-item
+          = page_entries_info(@businesses)
+
+  thead
+    th = t('.code')
+    th = t('.name')
+    th = t('.financial_start_year')
+    th = t('.registered_contract_constructions_count')
+  tbody
+    - @businesses.each do |business|
+      tr
+        td = link_to business.code, edit_business_path(business)
+        td = truncate_with_hint(business.name)
+        td = "#{ business.financial_start_year} #{ t('unit.financial_year') }"
+        td = business.contract_constructions.size
+
+= paginate @businesses

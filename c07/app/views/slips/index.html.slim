@@ -1,0 +1,74 @@
+h3.title = t('.title')
+
+= search_form_for @query, class: 'search-form' do |f|
+  fieldset
+    legend
+      = fa_icon 'search', text: '検索'
+    .control.is-grouped
+      .control
+        label = t('.financial_year')
+        p.control = f.search_field :financial_year_eq, class: 'input is-small'
+      .control
+        label = t('.slip_type')
+        p.control
+          span.select.is-small
+            = f.select :slip_type_id_eq, slip_types_for_select, { include_blank: true }
+      .control
+        label = t('.code')
+        p.control = f.search_field :code_cont, class: 'input is-small'
+      .control
+        label = t('.slip_date')
+        p.control = f.search_field :slip_date_eq, class: 'input is-small datetime-picker'
+      .control style="width:55px"
+        = content_tag(:p, class: 'is-button') do
+          = button_tag(class: 'button is-small is-info') do
+            span.icon.is-small = fa_icon 'search'
+            span.is-bold = t('form.submit.search')
+
+nav.level
+  .level-left
+    .level-item
+      = link_to new_slip_path, class: 'button is-small' do
+        span.icon.is-small = fa_icon 'plus-square-o'
+        span = t('form.submit.create')
+
+table.table.is-bordered.index.slip_index
+  thead
+    th = t('.code')
+    th = t('.slip_date')
+    th = t('.created_at')
+    th = t('.debit_account_heading')
+    th = t('.credit_account_heading')
+    th = t('.amount')
+    th = t('.slip_resource')
+    th = t('.division')
+    th = t('.contract_construction')
+    th = t('.cost')
+    th = t('.summary')
+    th = t('.summary_item')
+    th = t('.summary_date')
+  tbody
+    - @slips.each do |slip|
+      tr.bg-light-blue
+        td = link_to slip.code, edit_slip_path(slip)
+        td.text-center = l(slip.slip_date)
+        td.text-center = l(slip.created_at.to_date)
+        td = slip.slip_type.try(:name)
+        td colspan="9" = slip.slip_details.sort_by(&:row_number).first.try(:id)
+      - slip.slip_details.sort_by(&:row_number).each do |slip_detail|
+        tr
+          td.text-right = slip_detail.id
+          td
+          td
+          td = slip_detail.debit_account_heading.code_with_name
+          td = slip_detail.credit_account_heading.code_with_name
+          td.text-right = with_unit(slip_detail.amount.try(:to_s, :delimited), t('unit.money'))
+          td.text-center = slip_detail.slip_resource.try(:code)
+          td.text-center = slip_detail.division.try(:code)
+          td.text-center = "#{ slip_detail.contract_construction.try(:financial_year) } / #{slip_detail.contract_construction.try(:code) }" if slip_detail.contract_construction.present?
+          td.text-center = slip_detail.cost.try(:code)
+          td = slip_detail.summary
+          td = slip_detail.summary_item
+          td = slip_detail.summary_date
+
+= paginate @slips

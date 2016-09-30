@@ -1,0 +1,15 @@
+= form_for [:master_bank, master_bank_branch] do |f|
+  table.table.is-bordered.form
+    tr
+      p  = f.hidden_field :master_bank_code
+      th = f.label :code
+      td = f.text_field :code, placeholder: t('.code')
+    tr
+      th = f.label :name
+      td = f.text_field :name, placeholder: t('.name')
+    tr
+      th = f.label :name_kana
+      td = f.text_field :name_kana, placeholder: t('.name_kana')
+  = render 'shared/form_buttons', object: master_bank_branch,
+    index_path: master_bank_master_bank_branches_path(master_bank_id: master_bank_branch.master_bank_code),
+    resource_path: master_bank_branch.new_record? ? nil : master_bank_master_bank_branch_path

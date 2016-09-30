@@ -1,0 +1,44 @@
+h3.title = t('.title')
+
+.box.w40
+  .control.has-iddons.has-addons-lefted
+    = search_form_for @query, :url => {:action => :index }, class: 'search-form', builder: ActionView::Helpers::BulmaFormBuilder do |f|
+      fieldset
+        legend
+          = fa_icon 'search', text: t('form.search.condition')
+        .control.is-grouped
+          .control
+            p = f.search_field :code_eq, placeholder: t('.code'), class: 'input is-small'
+            p = f.search_field :name_cont, placeholder: t('.name'), class: 'input is-small'
+          .control.is-checkbox.w100px
+            = content_tag(:p) do
+              = label_tag :q_with_deleted do
+                = "#{ t('form.input.display_with_deleted') }："
+                = check_box_tag 'q[with_deleted]', 1, (params[:q] && params[:q][:with_deleted].to_s == '1')
+
+          .control style="width:55px"
+            = content_tag(:p, class: 'is-button') do
+              = button_tag(class: 'button is-small is-info') do
+                span.icon.is-small = fa_icon 'search'
+                span.is-bold = t('form.submit.search')
+
+.control
+  = link_to t('.create_department'), new_division_department_path, class: 'button is-info'
+
+table.table.is-bordered.index.dark
+  thead
+    tr
+      th id
+      th = t('.code')
+      th = t('.name')
+      th = t('.employee_count')
+  tbody
+    - @departments.each do |department|
+      tr class="#{ department.deleted? ? 'deleted' : '' }"
+        td = link_to department.id, edit_division_department_path(id: department), style: 'display:block;'
+        td = department.code
+        td = department.name
+        td ◯人
+
+.control
+  = link_to 'top', root_path, class: 'button'

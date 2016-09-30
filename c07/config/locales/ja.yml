@@ -1,0 +1,945 @@
+ja:
+  application_name: 建設タウン
+  site_station: 現場システム
+
+  page_title:
+    index: "%{name}一覧"
+    new:    "%{name}登録"
+    create: "%{name}登録"
+    edit:   "%{name}編集"
+    update: "%{name}編集"
+
+  action:
+    created: "%{model_name}:「%{name}」を登録しました"
+    updated: "%{model_name}:「%{name}」を更新しました"
+    deleted: "%{model_name}:「%{name}」を削除しました"
+    restored: "%{model_name}:「%{name}」を復元しました"
+
+  menu:
+    service:
+      management_sales: 営業管理
+      management_business: 業務管理
+      management_daily_report: 日報管理
+  form:
+    input:
+      code: 数字を入力
+      name: 原価名を入力
+      auto_numbering: 自動採番
+      display_with_deleted: 削除済を表示
+    submit:
+      search: 検索
+      create: 登録
+      update: 更新
+      submit: 保存
+      output: 出力
+    search:
+      condition: 検索条件
+      order_by: 表示順
+    back_to_index: 一覧に戻る
+    delete: 削除
+    delete_confirm: 削除しますか?
+    restore_confirm: 復元しますか？
+    please_select: 選択してください
+    delete_this_row: この行を削除
+    sub_total: 小計
+    total: 合計
+
+  button:
+    back: 戻る
+    edit: 編集
+    destroy: 削除
+    restore: 復元
+    csv_upload: CSV取り込み
+    csv_download: CSV出力
+    request_to: "%{name}情報取得"
+    select: 選択
+    add_object: "%{name}追加"
+    add_row: 行追加
+    management: "%{name}管理"
+    input_by_form: 手入力する
+    input_by_csv_file: CSVから取り込む
+
+  unit:
+    money: 円
+    financial_year: 期
+
+  activerecord:
+    models:
+      cost: 原価項目
+      master_bank: 銀行
+      master_bank_branch: 銀行支店
+      account_heading: 勘定科目
+      business: 業務
+      construction_info: 営業中工事
+      contract_construction: 担当工事
+      quotation: 見積
+      quotation_detail: 見積詳細
+      budget: 実行予算
+      company: 企業
+      company_relation: 取引先
+      customer: 受注先
+      payee: 支払先
+      vendor: 仕入先
+      department: 部署
+      division: 部門
+      slip_type: 伝票分類
+      slip_resource: 資金
+      slip: 伝票
+      slip_detail: 伝票詳細
+    attributes:
+      account_heading: &account_heading_attributes
+        code: 勘定科目コード
+        name: 勘定科目名
+        division: 勘定科目区分
+      cost: &cost_attributes
+        code: 原価コード
+        name: 原価名
+        account_heading_id: 勘定科目
+        cost_class: 原価分類
+        budget_class: 予算分類
+      master_bank: &master_bank_attributes
+        code: 銀行コード
+        name: 銀行名
+        name_kana: 銀行名カナ
+      business: &business_attributes
+        code: 業務コード
+        name: 名称
+        financial_start_year: 決算開始期
+        profit_division: 採算区分
+        profit_division_id: 採算区分ID
+        code_number: 管理番号
+        status: ステータス
+      construction_info: &construction_info_attributes
+        id: 整理番号
+        site_name: 現場名
+        construction_name: 工事名
+        enactment_location: 施工場所
+        financial_year: 決算期
+        financial_year_unit: 期
+        first_master_construction_probability_id: 登録時受注確率
+        master_construction_probability_id: 受注確率
+        master_construction_probability: 受注確率
+        schedule: 工期
+        technical_employee_id: 技術担当者
+        technical_employee: 技術担当者
+        sales_employee_id: 営業担当者
+        sales_employee: 営業担当者
+        foreman_employee_id: 工事担当者
+        foreman_employee: 工事担当者
+        representative: 担当者
+        building_contractor: 建築業者
+        expected_amount: 予定金額
+        bill_division: 請求区分
+        recital: 備考
+        construction_joint_venture_name: サブコン
+        company_sub_classification_name: 工事区分
+        enactment_schedule_started_date: 施工開始日
+        enactment_schedule_ended_date: 施工完了日
+        total_area: 延べ面積
+        master_construction_model: 受注形態
+        customer_company_name: 受注先
+
+      master_bank_branch: &master_bank_branch_attributes
+        code: 支店コード
+        name: 支店名
+        name_kana: 支店名カナ
+
+      control_trading_account: &control_trading_account_attributes
+        bank: 銀行
+        branch: 支店
+        account: 口座
+        bank_code: 銀行コード
+        bank_name: 銀行名
+        bank_branch_code: 支店コード
+        branch_name: 支店名
+        account_number: 口座番号
+        account_name: 口座名義
+        account_name_kana: 口座名義カナ
+        bank_short_name: 銀行口座名略称
+        account_headings: 勘定科目
+        account_headings_code: コード
+        account_headings_name: 名称
+        limit_borrowing: 借入限度額
+        trading_account: 取引先口座
+
+      regular_debit_account: &regular_debit_account_attributes
+        regular_debit_account: 定例引落管理
+        drawer_type: 引落タイプ
+        withdrawal_month: 引落月
+        withdrawal_day: 引落日
+        payment_content: 支払い内容
+        detail: 詳細
+        payment: 支払い金額
+        withdrawal_bank: 引落銀行
+        deleted: 削除
+
+      company_setting: &company_setting_attributes
+        financial_period: 決算期
+        financial_year: 期
+        year: 年
+        month: 月
+        closing_first_year: 決算１期目の年
+        closing_start_month: 決算開始月
+        consumption_tax: 消費税
+      department: &department_attributes
+        code: コード
+        name: 名称
+      slip_resource: &slip_resource_attributes
+        code: コード
+        name: 名称
+      slip_type: &slip_type_attributes
+        code: コード
+        name: 名称
+        order_number: 順番
+
+      quotation: &quotation_attributes
+        'no': 見積NO
+        name: 見積書 名称
+        submitted_date: 提出日
+        created_date: 登録日
+        submitted_total_amount: 提出金額
+        initial_cost_total_amount: 原価金額
+
+      quotation_detail: &quotation_detail_attributes
+        row_number: 行番号
+        cost_code: 原価コード
+        sub_title_name: 中項目名
+        name1: 名称1
+        name2: 名称2
+        level1_name: 大項目名
+        unit: 単位
+        submitted_quantity: 提出数量
+        submitted_quantity_with_br_tag: "提出<br/>数量"
+        submitted_price: 提出単価
+        submitted_amount: 提出金額
+        initial_cost_quantity: 原価数量
+        initial_cost_quantity_with_br_tag: "原価<br/>数量"
+        initial_cost_price: 原価単価
+        initial_cost_amount: 原価金額
+      quotation_details:
+        <<: *quotation_detail_attributes
+
+      company: &company_attributes
+        name: 会社名
+        name_kana: カナ
+        name_short: 略称
+        tel: TEL
+        fax: FAX
+        post_code: 郵便番号
+        prefecture_code: 都道府県番号
+        address: 住所
+        start_date: 開始日
+        end_date: 終了日
+        branch_flag: 支社・支店フラグ
+        capital: 資本金
+        company_classification_id: 業者区分
+        main_company_sub_classification_id: 業者区分2
+        memo: メモ
+      company_relation: &company_relation_attributes
+        partner_company_id: 取引先
+        code: 取引先CD
+        own_company_code: 当社CD
+        contact_person: 窓口担当者
+        contact_tel: 窓口担当tel
+        contact_fax: 窓口担当fax
+        basic_contract_day: 基本契約締結日
+        start_up_date: 取引開始日
+        recital1: 備考1
+        recital2: 備考2
+        use_type: 取引種別
+        customer_flag: 受注先
+        customer: 受注先
+        payee_flag: 支払先
+        payee: 支払先
+        vendor_flag: 仕入先
+        vendor: 仕入先
+        partner_company_name: 取引先名
+        partner_company_address: 住所
+        vendor_mark: ○
+      customer: &customer_attributes
+        category: カテゴリ
+        cutoff_date: 締日
+        cutoff_date_cycle: 締日サイクル
+        arrival_day_of_submittal: 提出必着日
+        receipt_date: 入金日
+        receipt_account_code: 指定請求書
+        draft_site: 手形サイト
+        receipt_term: 入金条件
+      payee: &payee_attributes
+        cutoff_date: 締日
+        payment: 出金口座
+        payment_account: 振込
+        payment_check: 小切手
+        payment_cash: 現金
+        payment_note_payable: 支払手形
+        draft_site: 手形サイト
+        payment_notice: 支払通知
+        master_bank_branch_id: 銀行-支店
+        bank_account_type: 口座種別
+        bank_account_number: 口座番号
+        bank_account_name: 口座名義
+        bank_account_name_kana: 口座名義カナ
+      vendor: &vendor_attributes
+        category: 種別
+        payee_id: 支払先
+        account_heading_id: 未払時勘定科目
+      contract_construction: &contract_construction_attributes
+        <<: *construction_info_attributes
+        business_id: 業務
+        decision_no: 決定NO
+        decision_amount: 決定金額
+        decision_amount_tax: 決定金額消費税
+        code: 工番
+        name: 工事名
+        construction_division: 工事区分
+        contract_division: 請負区分
+        order_status: 受注ステータス
+        progress: 進捗
+      budget: &budget_attributes
+        'no': 予算NO
+      slip: &slip_attributes
+        code: 伝票番号
+        financial_year: 決算期
+        slip_type: 伝票分類
+        slip_date: 伝票日付
+        created_at: 登録日
+        slip_details: 伝票詳細
+      slip/slip_details: &slip_slip_details_attributes
+        debit_account_heading_id: 借方科目
+        credit_account_heading_id: 貸方科目
+        amount: 金額
+      slip_detail: &slip_detail_attributes
+        slip_resource: 資金
+        division: 部門
+        contract_construction: 工事（期 / 工番）
+        cost: 原価
+        debit_account_heading: 借方科目
+        credit_account_heading: 貸方科目
+        summary: 摘要
+        summary_item: 摘要(品目)
+        summary_date: 摘要(日付)
+        amount: 金額
+      division: &division_attributes
+        code: コード
+        name: 名称
+
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+
+  costs:
+    index:
+      <<: *cost_attributes
+      title: 原価項目一覧
+    new:
+      <<: *cost_attributes
+      title: 原価項目登録
+    edit:
+      <<: *cost_attributes
+      title: 原価項目編集
+    form:
+      <<: *cost_attributes
+
+
+  account_headings:
+    form:
+      <<: *account_heading_attributes
+    index:
+      <<: *account_heading_attributes
+
+  master_banks:
+    index:
+      <<: *master_bank_attributes
+      title: 銀行一覧
+      count_bank: 総件数
+      count_branches: 支店登録数
+    new:
+      <<: *master_bank_attributes
+      title: 銀行マスタ新規作成
+    edit:
+      <<: *master_bank_attributes
+      title: 銀行マスタ編集
+    form:
+      <<: *master_bank_attributes
+
+  master_bank_branches:
+    index:
+      <<: *master_bank_branch_attributes
+      title: 支店一覧
+      bank_code: 銀行コード
+      bank_name: 銀行名
+    new:
+      <<: *master_bank_branch_attributes
+      title: 支店マスタ新規作成
+    edit:
+      <<: *master_bank_branch_attributes
+      title: 支店マスタ編集
+    form:
+      <<: *master_bank_branch_attributes
+
+  control_trading_accounts:
+    index:
+      <<: *control_trading_account_attributes
+      title: 取引先口座一覧
+      total: 合計
+    new:
+      <<: *control_trading_account_attributes
+      title: 取引先口座新規登録
+    edit:
+      <<: *control_trading_account_attributes
+      title: 取引先口座編集
+    form:
+      <<: *control_trading_account_attributes
+      bank_input: 銀行コードを入力
+      branch_input: 支店コードを入力
+      account_headings_input: 勘定科目コードを入力
+  regular_debit_accounts:
+    index:
+      <<: *regular_debit_account_attributes
+      title: 定例引落一覧
+      description: 支払い内容をクリックすると、詳細情報を表示し、修正や削除が行えます。
+      fixation: 固定
+      remotion: 移動
+      fluctuation: 変動
+      total: 合計
+      total_payment: 支払い金額合計
+      bulk_delete: 一括削除
+    new:
+      <<: *regular_debit_account_attributes
+      title: 定例引落新規登録
+    edit:
+      <<: *regular_debit_account_attributes
+      title: 定例引落編集
+    form:
+      <<: *regular_debit_account_attributes
+      withdrawal_day_placeholder: '1~31の数値を入力してください'
+
+  company_settings:
+    edit:
+      <<: *company_setting_attributes
+      title: システム共通設定
+      financial_year_description: 決算処理を行った際に変更
+      present_term: 今期
+      tax_description: パーセンテージではなく数字で入力  例. 8% → 0.08
+
+  departments:
+    index:
+      <<: *department_attributes
+      title: 部署マスタ管理
+      employee_count: 社員数
+      create_department: 部署追加
+    new:
+      <<: *department_attributes
+      title: 部署情報の追加
+    edit:
+      <<: *department_attributes
+      title: 部署情報の編集
+    form:
+      <<: *department_attributes
+  divisions:
+    index:
+      <<: *division_attributes
+      title: 部門一覧
+      create_division: 部門作成
+      departments: 部署数
+    new:
+      <<: *division_attributes
+      title: 部門作成
+    edit:
+      <<: *division_attributes
+      title: 部門編集
+    form:
+      <<: *division_attributes
+  slip_resources:
+    index:
+      <<: *slip_resource_attributes
+      title: 資金マスタ管理
+      create_slip_resource: 資金情報作成
+    new:
+      <<: *slip_resource_attributes
+      title: 資金情報の追加
+    edit:
+      <<: *slip_resource_attributes
+      title: 資金情報の編集
+    form:
+      <<: *slip_resource_attributes
+  slip_types:
+    index:
+      <<: *slip_type_attributes
+      title: 伝票分類一覧
+      create_slip_type: 伝票分類作成
+    new:
+      <<: *slip_type_attributes
+      title: 伝票分類の追加
+    edit:
+      <<: *slip_type_attributes
+      title: 伝票分類の編集
+    form:
+      <<: *slip_type_attributes
+
+  businesses:
+    index:
+      <<: *business_attributes
+      title: 業務一覧
+      registered_contract_constructions_count: 登録工事数
+    new:
+      <<: *business_attributes
+      title: 業務登録
+    edit:
+      <<: *business_attributes
+    form:
+      <<: *business_attributes
+    show_modal:
+      <<: *business_attributes
+
+  constructions:
+    show_modal:
+      <<: *construction_info_attributes
+      joint_venture: サブコン
+      enactment_schedule: 施工期間
+
+  construction_infos:
+    index:
+      <<: *construction_info_attributes
+      title: 営業中工事一覧
+    new:
+      <<: *construction_info_attributes
+      title: 営業中工事登録
+    edit:
+      <<: *construction_info_attributes
+      title: 営業中工事編集
+    show_modal:
+      <<: *construction_info_attributes
+      joint_venture: サブコン
+      enactment_schedule: 施工期間
+    expect_order_list:
+      <<: *construction_info_attributes
+      <<: *quotation_attributes
+      title: 受注予定一覧
+      number: "NO"
+    form: &construction_infos_form
+      base_info: 基本情報
+      details_info: 詳細情報
+      quotation_info: 見積情報
+      quotation_amount: 見積金額
+      site_and_construction: 現場工事
+      construction_schedule: 工事工程
+      enactment_schedule: 施工工程
+      construction_model: 受注形態
+      customer_company: 受注先
+  report_of_businesses:
+    construction_summary:
+      <<: *construction_info_attributes
+      title: 手持・受注予定総括表
+      kind: 区分
+      total: 合計
+      sub_total: 小計
+
+  quotations:
+    index:
+      <<: *quotation_attributes
+      title: 見積一覧
+    new:
+      <<: *quotation_attributes
+      title: 見積登録
+    edit:
+      <<: *quotation_attributes
+      <<: *quotation_detail_attributes
+      title: 見積編集
+    form:
+      quotation_details: 見積詳細
+      sub_title:
+        hint:
+          create: 見積を登録した後、見積詳細の登録が行えます
+          update: 見積詳細は、手動でフォームから入力、もしくはCSVアップロードで登録が行えます
+      quotation_detail:
+        <<: *quotation_detail_attributes
+    show_modal:
+      <<: *quotation_attributes
+
+  quotation_details:
+    index:
+      title: 見積詳細編集
+      quotation_info: 見積情報
+      quotation:
+        <<: *quotation_attributes
+      <<: *quotation_detail_attributes
+  company_relations:
+    index:
+      <<: *company_relation_attributes
+      classification: 種別
+      classification_none: 指定なし
+    new:
+      <<: *company_relation_attributes
+      title: 取引先新規登録
+    edit:
+      <<: *company_relation_attributes
+      title: 取引先編集
+    form:
+      <<: *company_relation_attributes
+
+  companies:
+    show_modal:
+      <<: *company_attributes
+
+  contract_constructions:
+    index:
+      <<: *contract_construction_attributes
+      business:
+        <<: *business_attributes
+      title: 担当工事一覧
+      quotation_submitted_total_amount: 見積提出金額
+    new:
+      <<: *contract_construction_attributes
+      title: 担当工事登録
+    edit:
+      <<: *contract_construction_attributes
+      title: 担当工事編集
+    form:
+      <<: *contract_construction_attributes
+      <<: *construction_infos_form
+      business:
+        <<: *business_attributes
+      business_info: 業務
+      construction_info: 営業時の情報
+      contract_construction_info: 工事情報
+      decision_process: 決定処理
+
+  budgets:
+    form:
+      cost_short_name: 原価
+      reflect_from_quotation: 見積を予算に反映
+      reflect_from_quotation_confirm: "見積「%{no}」に登録されている原価を\n実行予算の行へ反映させます。\n\nよろしいですか？\n\n(既に原価登録されている行に関しては反映されません)"
+      copy_quotation_amount_confirm: "見積原価の金額を実行予算額へ反映させます。\n\nよろしいですか？"
+      delete_amount_confirm: "実行予算額をすべて消去します。\n\nよろしいですか？"
+      copy_amount_confirm: "実行予算額を最終予算額へ反映させます。\n\nよろしいですか？"
+      delete_final_amount_confirm: "最終予算額をすべて消去します。\n\nよろしいですか？"
+    informations:
+      <<: *budget_attributes
+    new:
+      <<: *budget_attributes
+    edit:
+      <<: *budget_attributes
+
+  slips:
+    index:
+      <<: *slip_attributes
+      <<: *slip_detail_attributes
+      title: 伝票一覧
+    new:
+      <<: *slip_attributes
+      <<: *slip_detail_attributes
+      title: 伝票登録
+    edit:
+      <<: *slip_attributes
+      <<: *slip_detail_attributes
+      title: 伝票編集
+  slip_details:
+    form:
+      <<: *slip_detail_attributes
+      <<: *slip_slip_details_attributes
+
+  csv:
+    upload:
+      quotations:
+        index:
+          quotation:
+            <<: *quotation_attributes
+          title: 見積受付
+
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: "%Y/%m/%d"
+      default_ja: "%Y年%m月%d日"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+    month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  success:
+    messages:
+      add_rows: "%{count}件のデータを追加/更新しました"
+      update_setting: 消費税・決算期を保存しました
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: を受諾してください
+      blank: を入力してください
+      present: は入力しないでください
+      confirmation: と%{attribute}の入力が一致しません
+      empty: を入力してください
+      equal_to: は%{count}にしてください
+      even: は偶数にしてください
+      exclusion: は予約されています
+      greater_than: は%{count}より大きい値にしてください
+      greater_than_or_equal_to: は%{count}以上の値にしてください
+      inclusion: は一覧にありません
+      invalid: は不正な値です
+      less_than: は%{count}より小さい値にしてください
+      less_than_or_equal_to: は%{count}以下の値にしてください
+      model_invalid: "バリデーションに失敗しました: %{errors}"
+      not_a_number: は数値で入力してください
+      not_an_integer: は整数で入力してください
+      odd: は奇数にしてください
+      required: を入力してください
+      taken: はすでに存在します
+      too_long: は%{count}文字以内で入力してください
+      too_short: は%{count}文字以上で入力してください
+      wrong_length: は%{count}文字で入力してください
+      other_than: は%{count}以外の値にしてください
+      not_selected_file: ファイルを選択して下さい
+      only_csv_file: CSV以外のファイルが選択されています
+      illegal_format: フォーマットが不正です
+      already_used: はすでに%{model}で使用されています
+      not_yet_been_registerd: "%{name}はまだ登録されていません"
+      same_cost_do_not_regist: "同じ原価「%{cost}」が指定されています 一つにまとめて下さい"
+
+    template:
+      body: 次の項目を確認してください
+      header:
+        one: "%{model}にエラーが発生しました"
+        other: "%{model}に%{count}個のエラーが発生しました"
+  helpers:
+    select:
+      prompt: 選択してください
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%n%u"
+        precision: 0
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n%u"
+        units:
+          byte: バイト
+          gb: ギガバイト
+          kb: キロバイト
+          mb: メガバイト
+          tb: テラバイト
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: と
+      two_words_connector: と
+      words_connector: と
+  time:
+    am: 午前
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      short: "%y/%m/%d %H:%M"
+    pm: 午後
+
+  layouts:
+    header:
+      login: ログイン
+      logout: ログアウト
+
+  enums:
+    account_heading:
+      division:
+        resource: 資産
+        debt: 負債
+        capital: 資本
+        sales: 売上
+        expense: 費用
+        profit: 収益
+        etc: その他
+    cost:
+      cost_class:
+        cash: 現金
+        cash_over_short: 現金過不足
+        current_deposit: 当座預金
+      budget_class:
+        class_a: A材
+        class_b: B材
+        class_c: C材
+        expense: 経費
+    regular_debit_account:
+      drawer_type:
+        fixation:    固定
+        remotion:    移動
+        fluctuation: 変動
+      withdrawal_month:
+        monthly:  毎月
+        january:   1月
+        february:  2月
+        march:     3月
+        april:     4月
+        may:       5月
+        june:      6月
+        july:      7月
+        august:    8月
+        september: 9月
+        october:  10月
+        november: 11月
+        december: 12月
+    contract_construction:
+      construction_division:
+        main_work:    本工事
+        add_work:     追加工事
+        general_work: 雑工事
+        other:        その他
+      contract_division:
+        general_contractor: 下請け(ゼネコン)
+        sub_contractor:     下請け(サブコン)
+        general:            下請け(一般)
+        direct_sales:       直受け(一般営業)
+        direct_publicity:   直受け(一般広告)
+        direct_trader:      直受け(業者)
+        government_office:  官庁
+        other:              その他
+      order_status:
+        decision_order:    受注決定
+        decision_amount:   金額決定
+        payment_certainty: 入金確実
+        completion:        完成
+      progress:
+        default: ''
+        budget_decision: 予算登録済
+        closed: 決算処理済
+    customer:
+      category:
+        authorities: 官庁
+        general_contractor: ゼネコン
+        subcontractor: サブコン
+        contractor: 元請
+        special: 特殊
+        other: その他
+      cutoff_date_cycle:
+        present_month: 当月
+        next_month: 翌月
+        month_after_next: 翌々月
+        unknown: 不明
+    vendor:
+      category:
+        material: 資材
+        out_sourcing: 外注
+        expenses: 経費
+        other: その他

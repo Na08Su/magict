@@ -1,0 +1,74 @@
+= title_tag(resource: ConstructionInfo)
+
+= search_form_for @query, class: 'search-form', builder: ActionView::Helpers::BulmaFormBuilder do |f|
+  fieldset.is-pulled-left.bg-light-blue2
+    legend
+      = fa_icon 'search', text: '検索'
+    .control.is-grouped
+      .control
+        label = t('.id')
+        p.control = f.search_field :id_cont, class: 'input is-small', style: 'width:60px'
+      .control
+        label = t('.site_name')
+        p.control = f.search_field :site_name_cont, class: 'input is-small'
+      .control
+        label = t('.construction_name')
+        p.control = f.search_field :construction_name_cont, class: 'input is-small'
+      .control
+        label = t('.schedule')
+        p.control
+          = f.search_field :schedule_start_gteq, class: 'input is-small w85px'
+          | &nbsp;-&nbsp;
+          = f.search_field :schedule_end_lteq, class: 'input is-small w85px'
+      .control
+        label = t('.master_construction_probability')
+        p.control
+          span.select.is-small
+            = f.select :master_construction_probability_id_eq, construction_probabilities_for_select, { include_blank: true }
+      .control
+        label = t('.financial_year')
+        p.control = f.search_field :financial_year_eq, class: 'input is-small', style: 'width:60px'
+      .control style="width:55px"
+        = content_tag(:p, class: 'is-button') do
+          = button_tag(class: 'button is-small is-info') do
+            span.icon.is-small = fa_icon 'search'
+            span.is-bold = t('form.submit.search')
+
+  fieldset.is-pulled-left.ml20.bg-light-gray
+    legend &nbsp;
+    .control
+      label = spacer(1)
+      p = link_to new_construction_info_path, class: 'button is-small is-blue' do
+        span.icon.is-small = fa_icon 'plus'
+        span.is-bold = t('form.submit.create')
+
+table.table.is-bordered.index
+  caption
+    .level
+      .level-left
+      .level-right
+        .level-item
+          = page_entries_info(@construction_infos)
+
+  thead
+    th = t('.id')
+    th = t('.site_name')
+    th = t('.construction_name')
+    th = t('.enactment_location')
+    th = t('.schedule')
+    th = t('.master_construction_probability')
+    th = t('.financial_year')
+    th = t('.expected_amount')
+  tbody
+    - @construction_infos.each do |construction_info|
+      tr
+        td = link_to construction_info.id, edit_construction_info_path(construction_info)
+        td = truncate_with_hint(construction_info.site_name)
+        td = truncate_with_hint(construction_info.construction_name)
+        td = truncate_with_hint(construction_info.enactment_location)
+        td = construction_info.schedule
+        td = construction_info.master_construction_probability.try(:code_with_name)
+        td = construction_info.financial_year
+        td.text-right = construction_info.expected_amount.try(:to_s, :delimited)
+
+= paginate @construction_infos

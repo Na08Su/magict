@@ -1,0 +1,18 @@
+id,code,name,cost_class,budget_class,deleted_at,created_at,updated_at
+19,110,RAC,cash,construction_cost,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+20,111,FRP製水槽,cash,construction_cost,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+18,112,鋼板製水槽,cash,construction_cost,,2016-07-20 07:01:50 UTC,2016-07-20 07:48:28 UTC
+21,113,製缶類,cash,construction_cost,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+22,114,ポンプ類,cash,construction_cost,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+23,115,シロッコファン,cash,construction_cost,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+24,116,軸流ファン,cash,construction_cost,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+25,117,空調換気扇,cash,construction_cost,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+26,118,換気扇類,cash,construction_cost,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+27,119,その他ファン,cash,construction_cost,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+28,185,ダクト用Ｂ材,cash,construction_cost_machine,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+29,201,配管人件費,cash,construction_cost_material,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+30,202,ダクト人件費,cash,construction_cost_material,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+31,203,技術人件費,cash,construction_cost_material,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+32,204,福利厚生費,cash,construction_cost_material,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+33,205,法定福利費,cash,construction_cost_material,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC
+34,206,他部応援人件費,cash,construction_cost_material,,2016-07-20 07:48:28 UTC,2016-07-20 07:48:28 UTC

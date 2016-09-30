@@ -1,0 +1,18 @@
+= form_for quotation, builder: ActionView::Helpers::BulmaFormBuilder do |f|
+  h4.sub-title.blue2.w50
+    = t('activerecord.models.quotation')
+    = spacer(10)
+    small.gray = t((quotation.new_record? ? 'create' : 'update'), scope: [:quotations, :form, :sub_title, :hint])
+
+  table.table.is-bordered.form.dark.w50
+    tr
+      th = f.label :name
+      td = f.text_field :name
+    tr
+      th = f.label :no
+      td = f.text_field :no, class: 'w30'
+    tr
+      th = f.label :submitted_date
+      td = f.text_field :submitted_date, class: 'w30 datetime-picker'
+
+  = render 'shared/form_buttons', object: quotation

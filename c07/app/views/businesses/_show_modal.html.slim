@@ -1,0 +1,28 @@
+= form_tag show_modal_construction_infos_path, remote: true, class: 'search-form'
+  fieldset
+    legend = fa_icon 'search', text: '検索'
+    .columns
+      .column
+        label = t('.code')
+        p.control = text_field_tag :code_cont, params[:code_cont], class: 'input is-small'
+      .column
+        label = t('.name')
+        p.control = text_field_tag :name_cont, params[:name_cont], class: 'input is-small'
+      .column.button-column.is-1
+        p
+          = button_tag(class: 'button is-small is-info') do
+            span.icon.is-small = fa_icon 'search'
+            span.is-bold = t('form.submit.search')
+
+table#modal-businesses-table.table.is-bordered
+  caption.text-right = page_entries_info(businesses)
+  thead
+    th = t('.code')
+    th = t('.name')
+  tbody
+    - businesses.each do |business|
+      = content_tag(:tr, '', data: business.attributes_for_modal)
+        td = business.code
+        td = truncate_with_hint(business.name, class: 'hint--top-right')
+
+= paginate businesses, remote: true, method: :post

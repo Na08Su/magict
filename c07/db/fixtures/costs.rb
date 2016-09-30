@@ -1,0 +1,28 @@
+company_ids = Employee.pluck(:company_id).uniq.compact
+company_ids.each do |company_id|
+  Cost.seed(:code, :company_id,
+    { company_id: company_id, code: 110, name: 'RAC',            cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 111, name: 'FRP製水槽',      cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 112, name: '鋼板製水槽',     cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 113, name: '製缶類',         cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 114, name: 'ポンプ類',       cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 115, name: 'シロッコファン', cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 116, name: '軸流ファン',     cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 117, name: '空調換気扇',     cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 118, name: '換気扇類',       cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 119, name: 'その他ファン',   cost_class: 1, budget_class: 1 },
+    { company_id: company_id, code: 185, name: 'ダクト用Ｂ材',   cost_class: 1, budget_class: 2 },
+    { company_id: company_id, code: 201, name: '配管人件費',     cost_class: 1, budget_class: 3 },
+    { company_id: company_id, code: 202, name: 'ダクト人件費',   cost_class: 1, budget_class: 3 },
+    { company_id: company_id, code: 203, name: '技術人件費',     cost_class: 1, budget_class: 3 },
+    { company_id: company_id, code: 204, name: '福利厚生費',     cost_class: 1, budget_class: 3 },
+    { company_id: company_id, code: 205, name: '法定福利費',     cost_class: 1, budget_class: 3 },
+    { company_id: company_id, code: 206, name: '他部応援人件費', cost_class: 1, budget_class: 3 },
+    { company_id: company_id, code: 400, name: '工事福利厚生費', cost_class: 1, budget_class: 4 },
+    { company_id: company_id, code: 486, name: '営業経費',       cost_class: 1, budget_class: 4 },
+    { company_id: company_id, code: 487, name: '現場経費',       cost_class: 1, budget_class: 4 },
+    { company_id: company_id, code: 488, name: '固定経費',       cost_class: 1, budget_class: 4 },
+    { company_id: company_id, code: 489, name: '変動経費',       cost_class: 1, budget_class: 4 },
+    { company_id: company_id, code: 490, name: '部門経費',       cost_class: 1, budget_class: 4 },
+  )
+end

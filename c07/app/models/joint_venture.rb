@@ -1,0 +1,2 @@
+class JointVenture < ApplicationRecord
+end

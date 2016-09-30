@@ -1,0 +1,10 @@
+.control.is-grouped
+  .control = link_to t('button.back'), (local_variables.include?(:index_path) ? index_path : url_for(action: :index)), class: 'button'
+  - if object.new_record?
+    .control = submit_tag t('form.submit.create'), class: 'button is-info'
+  - else
+    .control = submit_tag t('form.submit.update'), class: 'button is-info'
+    - if object.respond_to?(:deleted?) && object.deleted?
+      .control = link_to t('button.restore'), url_for(action: :restore), method: :put, data: { confirm: t('form.restore_confirm') }, class: 'button is-dark'
+    - else
+      .control = link_to t('button.destroy'), (local_variables.include?(:resource_path) ? resource_path : object), method: :delete, data: { confirm: t('form.delete_confirm') }, class: 'button is-dark'

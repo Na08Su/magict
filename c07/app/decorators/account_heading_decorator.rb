@@ -1,0 +1,3 @@
+module AccountHeadingDecorator
+  include DecorateGeneralFunctions
+end

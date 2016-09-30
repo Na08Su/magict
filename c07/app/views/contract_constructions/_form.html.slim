@@ -1,0 +1,268 @@
+= form_for construction, builder: ActionView::Helpers::BulmaFormBuilder do |f|
+
+  = f.hidden_field :business_id
+  = f.hidden_field :construction_info_id
+  = f.hidden_field :quotation_id
+
+  .tile.is-ancestor
+    .tile.is-vertical.is-parent
+      / 業務情報
+      .tile.is-child
+        h4.sub-title.blue2
+          = t('.business_info')
+          = spacer(10)
+          small.gray 担当工事は特定の業務と紐付ける必要があります #{ link_to '業務登録', new_business_path }
+
+        .mb10 = link_to "#{ t('activerecord.models.business') }#{ t('button.select') }", show_modal_businesses_path, remote: true, method: :post, data: { target: '#modal' }, class: 'modal-button button is-small is-light'
+
+        table.table.is-bordered.form.dark.mb0
+          tr
+            th = label_tag :business_code, t('.business.code')
+            td = text_field_tag :business_code, construction.business.try(:code), class: 'input is-small is-disabled'
+          tr
+            th = label_tag :business_name, t('.business.name')
+            td = text_field_tag :business_name, construction.business.try(:name), class: 'input is-small is-disabled'
+
+      / 工事情報
+      .tile.is-child
+        h4.sub-title.blue2
+          = t('.contract_construction_info')
+          = spacer(10)
+          small.gray 営業時の工事情報を利用することが出来ます
+        .mb10 = link_to "#{ t('activerecord.models.construction_info') }#{ t('button.select') }", show_modal_construction_infos_path, remote: true, method: :post, data: { target: '#modal' }, class: 'modal-button button is-small is-light'
+        table.table.is-bordered.form.dark.mb0
+          tr
+            th = f.label :financial_year
+            td
+              = f.text_field :financial_year, class: 'w10'
+              = spacer(2)
+              = f.label :financial_year_unit
+          tr
+            th = f.label :code
+            td
+              = f.text_field :code, class: 'w30'
+              = spacer(2)
+              em 業務選択で、自動算出されます
+          tr
+            th = f.label :name
+            td = f.text_field :name
+          tr
+            th = f.label :construction_division
+            td = f.select :construction_division, construction_divisions_for_select, { include_blank: t('form.please_select') }, { class: 'w50' }
+          tr
+            th = f.label :contract_division
+            td = f.select :contract_division, contract_divisions_for_select, { include_blank: t('form.please_select') }, { class: 'w50' }
+          tr
+            th = f.label :technical_employee_id
+            td = f.select :technical_employee_id, technical_employees_for_select, { include_blank: t('form.please_select'), label_suffix: spacer(5) }, { class: 'w50' }
+          tr
+            th = f.label :sales_employee_id
+            td = f.select :sales_employee_id, sales_employees_for_select, { include_blank: t('form.please_select'), label_suffix: spacer(5) }, { class: 'w50' }
+          tr
+            th = f.label :foreman_employee_id
+            td = f.select :foreman_employee_id, foreman_employees_for_select, { include_blank: t('form.please_select'), label_suffix: spacer(5) }, { class: 'w50' }
+          tr
+            th = f.label :scheudle_start, t('.construction_schedule')
+            td
+              = f.text_field :schedule_start, class: 'w20'
+              label = spacer(5) { '〜' }
+              = f.text_field :schedule_end, class: 'w20'
+          tr
+            th = f.label :enactment_schedule_start, t('.enactment_schedule')
+            td
+              = f.text_field :enactment_schedule_start, class: 'w20'
+              label = spacer(5) { '〜' }
+              = f.text_field :enactment_schedule_end, class: 'w20'
+          tr
+            th = f.label :order_status
+            td = f.select :order_status, construction_order_statuses_for_select, { include_blank: t('form.please_select') }, { class: 'w50' }
+
+      .tile.is-child
+        h4.sub-title.blue2 = t('.decision_process')
+        table.table.is-bordered.form.dark.mb0
+          tr
+            th = f.label :decision_no
+            td
+              = f.text_field :decision_no, class: 'w30 is-disabled'
+              = spacer(5)
+              = content_tag(:em) { '決算期毎に登録工事数で連番を割り振ります' }
+          tr
+            th = f.label :decision_amount
+            td
+              = f.comma_delimited_field :decision_amount, class: 'w50'
+              label = spacer(2) { t('number.currency.format.unit') }
+          tr
+            th = f.label :decision_amount_tax
+            td
+              = f.comma_delimited_field :decision_amount_tax, class: 'w50'
+              label = spacer(2) { t('number.currency.format.unit') }
+      .tile.is-child
+
+
+    / 営業時の情報
+    .tile.is-vertical.is-parent
+      .tile.is-child
+        h4.sub-title.blue2 = t('.construction_info')
+        table.table.is-bordered.form.dark.mb0
+          tr
+            th
+              label = t('.financial_year')
+            td
+              = text_field_tag :construction_info_financial_year, construction.construction_info.try(:financial_year), class: 'input is-small is-disabled w10'
+              = spacer(2)
+              label = t('unit.financial_year')
+          tr
+            th = content_tag(:label) { t('.site_name') }
+            td = text_field_tag :construction_info_site_name, construction.construction_info.try(:site_name), class: 'input is-small is-disabled'
+          tr
+            th = content_tag(:label) { t('.construction_name') }
+            td = text_field_tag :construction_info_construction_name, construction.construction_info.try(:construction_name), class: 'input is-small is-disabled'
+          tr
+            th = content_tag(:label) { t('.enactment_location') }
+            td = text_field_tag :construction_info_enactment_location, construction.construction_info.try(:enactment_location), class: 'input is-small is-disabled'
+          tr
+            th = content_tag(:label) { t('.construction_schedule') }
+            td
+              = text_field_tag :construction_info_schedule_start, construction.construction_info.try(:schedule_start), class: 'input is-small is-disabled w20'
+              label = spacer(5) { '〜' }
+              = text_field_tag :construction_info_schedule_end, construction.construction_info.try(:schedule_end), class: 'input is-small is-disabled w20'
+          tr
+            th = content_tag(:label) { t('.enactment_schedule') }
+            td
+              = text_field_tag :construction_info_enactment_schedule_start, construction.construction_info.try(:enactment_schedule_start), class: 'input is-small is-disabled w20'
+              label = spacer(5) { '〜' }
+              = text_field_tag :construction_info_enactment_schedule_end, construction.construction_info.try(:enactment_schedule_end), class: 'input is-small is-disabled w20'
+          tr
+            th = content_tag(:label) { t('.technical_employee') }
+            td = text_field_tag :construction_info_technical_employee_name, construction.construction_info.try(:technical_employee).try(:code_with_name), class: 'input is-small is-disabled w50'
+          tr
+            th = content_tag(:label) { t('.sales_employee') }
+            td = text_field_tag :construction_info_sales_employee_name, construction.construction_info.try(:sales_employee).try(:code_with_name), class: 'input is-small is-disabled w50'
+          tr
+            th = content_tag(:label) { t('.foreman_employee') }
+            td = text_field_tag :construction_info_foreman_employee_name, construction.construction_info.try(:foreman_employee).try(:code_with_name), class: 'input is-small is-disabled w50'
+          tr
+            th = content_tag(:label) { t('.customer_company') }
+            td = text_field_tag :construction_info_customer_company_name, construction.construction_info.try(:customer_company).try(:name), class: 'input is-small is-disabled'
+          tr
+            th = content_tag(:label) { t('.construction_model') }
+            td = text_field_tag :construction_info_master_construction_model_name, construction.construction_info.try(:master_construction_model).try(:name), class: 'input is-small is-disabled w50'
+          tr
+            th = content_tag(:label) { t('.first_master_construction_probability_id') }
+            td = text_field_tag :construction_info_first_master_construction_probability_name, construction.construction_info.try(:first_master_construction_probability).try(:name), class: 'input is-small is-disabled w50'
+          tr
+            th = content_tag(:label) { t('.master_construction_probability') }
+            td = text_field_tag :construction_info_master_construction_probability_name, construction.construction_info.try(:master_construction_probability).try(:name), class: 'input is-small is-disabled w50'
+          tr
+            th = content_tag(:label) { t('.expected_amount') }
+            td
+              = text_field_tag :construction_info_expected_amount, construction.construction_info.try(:expected_amount), class: 'input is-small is-disabled w50 text-right', data: { autonumeric: { 'mDec': 0 } }
+              = spacer(2)
+              = content_tag(:label) { t('number.currency.format.unit') }
+          tr
+            th = content_tag(:label) { t('.building_contractor') }
+            td = text_field_tag :construction_info_building_contractor, construction.construction_info.try(:building_contractor), class: 'input is-small is-disabled'
+          tr
+            th = content_tag(:label) { t('.bill_division') }
+            td = text_field_tag :construction_info_master_bill_division_name, construction.construction_info.try(:master_bill_division).try(:name), class: 'input is-small is-disabled w40'
+          tr
+            th = content_tag(:label) { t('.recital') }
+            td = text_field_tag :construction_info_recital, construction.construction_info.try(:recital), class: 'input is-small is-disabled'
+
+      / 見積情報
+      .tile.is-child
+        h4.sub-title
+          span.blue2 = t('.quotation_info')
+          = spacer(10)
+          small.gray 営業時と見積内容が違う場合、見積を再選択
+        .mb10 = link_to t('button.request_to', name: t('activerecord.models.quotation')), show_modal_quotations_path, remote: true, method: :post, data: { target: '#modal' }, class: 'modal-button button is-small is-light'
+        table.table.is-bordered.form.dark.mb0
+          tr
+            th = f.label :quotation_no, t('activerecord.attributes.quotation.no')
+            td = text_field_tag :quotation_no, construction.quotation.try(:no), class: 'input is-small w50 is-disabled'
+          tr
+            th = f.label :quotation_submitted_date, t('activerecord.attributes.quotation.submitted_date')
+            td = text_field_tag :quotation_submitted_date, construction.quotation.try(:submitted_date), class: 'input is-small w50 is-disabled'
+          tr
+            th
+              label = t('activerecord.attributes.quotation.submitted_total_amount')
+            td
+              = text_field_tag :quotation_submitted_total_amount, construction.quotation.try(:submitted_total_amount).try(:to_s, :delimited), class: 'input is-small is-disabled w50 text-right'
+              label = spacer(2) { t('number.currency.format.unit') }
+          tr
+            th
+              label = t('activerecord.attributes.quotation.initial_cost_total_amount')
+            td
+              = text_field_tag :quotation_initial_cost_total_amount, construction.quotation.try(:initial_cost_total_amount).try(:to_s, :delimited), class: 'input is-small is-disabled w50 text-right'
+              label = spacer(2) { t('number.currency.format.unit') }
+
+  = render 'shared/form_buttons', object: construction
+
+javascript:
+  $(function() {
+    var schedule_start = $('#construction_schedule_start').flatpickr();
+    var schedule_end   = $('#construction_schedule_end').flatpickr();
+    //schedule_start.config.onChange = dateObj => schedule_end.set("minDate", dateObj.fp_incr(1));
+    //schedule_end.config.onChange = dateObj => schedule_start.set("maxDate", dateObj.fp_incr(-1));
+
+    calcTaxAmountBinding('decision_amount', 'decision_amount_tax', 'contract_construction');
+
+    // モーダル用設定
+    $(document).on('click', '#modal-quotations-table tbody tr', function() {
+      $('#contract_construction_quotation_id').val( $(this).data('id') );
+      $('#quotation_no').val( $(this).data('no') );
+      $('#quotation_submitted_date').val( $(this).data('submitted-date') );
+      $('#quotation_submitted_total_amount').val( $(this).data('submitted-total-amount') );
+      $('#quotation_initial_cost_total_amount').val( $(this).data('initial-cost-total-amount') );
+      $('.modal-close').click();
+    });
+
+    $(document).on('click', '#modal-businesses-table tbody tr', function() {
+      $('#business_code').val( $(this).data('code') );
+      $('#business_name').val( $(this).data('name') );
+      $('#contract_construction_business_id').val( $(this).data('id') );
+      $('#contract_construction_code').val( $(this).data('next-construction-code') );
+      $('.modal-close').click();
+    });
+
+    $(document).on('click', '#modal-construction-infos-table tbody tr', function() {
+      $('#contract_construction_construction_info_id').val( $(this).data('id') );
+      $('#contract_construction_financial_year').val( $(this).data('financial-year') );
+      $('#contract_construction_name').val( $(this).data('site-name') + ' ' + $(this).data('construction-name') );
+      $('#contract_construction_technical_employee_id').val( $(this).data('technical-employee-id') );
+      $('#contract_construction_sales_employee_id').val( $(this).data('sales-employee-id') );
+      $('#contract_construction_foreman_employee_id').val( $(this).data('foreman-employee-id') );
+      $('#contract_construction_schedule_start').val( $(this).data('schedule-start') );
+      $('#contract_construction_schedule_end').val( $(this).data('schedule-end') );
+      $('#contract_construction_enactment_schedule_start').val( $(this).data('enactment-schedule-start') );
+      $('#contract_construction_enactment_schedule_end').val( $(this).data('enactment-schedule-end') );
+
+      $('#construction_info_financial_year').val( $(this).data('financial-year') );
+      $('#construction_info_site_name').val( $(this).data('site-name') );
+      $('#construction_info_construction_name').val( $(this).data('construction-name') );
+      $('#construction_info_enactment_location').val( $(this).data('enactment-location') );
+      $('#construction_info_schedule_start').val( $(this).data('schedule-start') );
+      $('#construction_info_schedule_end').val( $(this).data('schedule-end') );
+      $('#construction_info_enactment_schedule_start').val( $(this).data('enactment-schedule-start') );
+      $('#construction_info_enactment_schedule_end').val( $(this).data('enactment-schedule-end') );
+      $('#construction_info_technical_employee_name').val( $(this).data('technical-employee-name') );
+      $('#construction_info_sales_employee_name').val( $(this).data('sales-employee-name') );
+      $('#construction_info_foreman_employee_name').val( $(this).data('foreman-employee-name') );
+      $('#construction_info_customer_company_name').val( $(this).data('customer-company-name') );
+      $('#construction_info_master_construction_model_name').val( $(this).data('master-construction-model-name') );
+      $('#construction_info_first_master_construction_probability_name').val( $(this).data('first-master-construction-probability-name') );
+      $('#construction_info_master_construction_probability_name').val( $(this).data('master-construction-probability-name') );
+      $('#construction_info_expected_amount').val( $(this).data('expected-amount') ) ;
+      $('#construction_info_master_bill_division_name').val( $(this).data('master-bill-division-name') );
+      $('#construction_info_building_contractor').val( $(this).data('building-contractor') );
+      $('#construction_info_recital').val( $(this).data('recital') );
+
+      $('#contract_construction_quotation_id').val( $(this).data('quotation-id') );
+      $('#quotation_no').val( $(this).data('quotation-no') );
+      $('#quotation_submitted_date').val( $(this).data('quotation-submitted-date') );
+      $('#quotation_submitted_total_amount').val( $(this).data('quotation-submitted-total-amount') );
+      $('#quotation_initial_cost_total_amount').val( $(this).data('quotation-initial-cost-total-amount') );
+
+      $('.modal-close').click();
+    });
+  });

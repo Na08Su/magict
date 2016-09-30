@@ -1,0 +1,44 @@
+h3.title = t('.title')
+
+.box.w30
+  .control.has-addons.has-addons-lefted
+    = search_form_for @query do |f|
+      .control.has-icon
+        = f.search_field :code_eq,   placeholder: t('.code'), class: 'input'
+        i.fa.fa-search
+      .control.has-icon
+        = f.search_field :name_cont, placeholder: t('.name'), class: 'input'
+        i.fa.fa-search
+      .control
+        = f.submit class: 'button is-info'
+
+nav.level
+  .level-left
+    .level-item
+      = link_to new_master_bank_path, class: 'button is-small' do
+        span.icon.is-small = fa_icon 'plus-square-o'
+        span = t('form.submit.create')
+  .level-right
+
+p #{ t('.count_bank') } : #{ MasterBank.all.count }
+
+table.table.is-bordered.index
+  thead
+    tr
+      th = t('.code')
+      th = t('.name')
+      th = t('.name_kana')
+      th = t('.count_branches')
+
+  tbody
+    - @master_banks.each do |bank|
+      tr
+        td = link_to bank.code, edit_master_bank_path(bank)
+        td = bank.name
+        td = bank.name_kana
+        td = link_to bank.master_bank_branches.size, master_bank_master_bank_branches_path(bank.id)
+
+br
+
+= paginate @master_banks
+= link_to 'top', root_path

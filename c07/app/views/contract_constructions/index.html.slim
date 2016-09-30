@@ -1,0 +1,82 @@
+= title_tag(resource: ContractConstruction)
+
+= search_form_for @query, class: 'search-form', builder: ActionView::Helpers::BulmaFormBuilder do |f|
+  fieldset.is-pulled-left.bg-light-blue2
+    legend
+      = fa_icon 'search', text: t('form.search.condition')
+    .control.is-grouped
+      .control
+        label = t('.code')
+        p = f.search_field :code_cont, class: 'input is-small', style: 'width:60px'
+      .control
+        label = t('.name')
+        p = f.search_field :name_cont, class: 'input is-small'
+      .control
+        label = t('.schedule')
+        p
+          = f.search_field :schedule_start_gteq, class: 'input is-small w85px'
+          | &nbsp;-&nbsp;
+          = f.search_field :schedule_end_lteq, class: 'input is-small w85px'
+      .control
+        label = t('.financial_year')
+        p = f.search_field :financial_year_eq, class: 'input is-small', style: 'width:60px'
+      .control style="width:55px"
+        p.is-button
+          = button_tag(class: 'change-action-button button is-small is-info', data: { action_url: contract_constructions_url }) do
+            span.icon.is-small = fa_icon 'search'
+            span.is-bold = t('form.submit.search')
+      .control style="width:55px"
+        p.is-button
+          = button_tag(class: 'change-action-button button is-small is-success', data: { action_url: export_excel_contract_constructions_url }) do
+            span.icon.is-small = fa_icon 'file-text'
+            span.is-bold = t('form.submit.output')
+
+  fieldset.is-pulled-left.ml20.bg-light-gray
+    legend &nbsp;
+    .control
+      label = spacer(1)
+      p = link_to new_contract_construction_path, class: 'button is-small is-blue' do
+        span.icon.is-small = fa_icon 'plus'
+        span.is-bold = t('form.submit.create')
+
+table.table.is-bordered.index
+  caption
+    .level
+      .level-left
+      .level-right
+        .level-item
+          = page_entries_info(@contract_constructions)
+
+  thead
+    th = t('.financial_year')
+    th = t('.business.code')
+    th = t('.code')
+    th = t('.name')
+    th = t('.schedule')
+    th = t('.quotation_submitted_total_amount')
+    th = t('.decision_amount')
+    th = t('activerecord.models.budget')
+    th = t('.construction_division')
+    th = t('.contract_division')
+    th = t('.order_status')
+    th = t('.progress')
+  tbody
+    - @contract_constructions.each do |construction|
+      tr
+        td = construction.financial_year
+        td = construction.business.code
+        td = link_to construction.code, edit_contract_construction_path(construction)
+        td = truncate_with_hint(construction.name)
+        td = construction.schedule
+        td.text-right = construction.construction_info.try(:quotation).try(:submitted_total_amount).try(:to_s, :delimited)
+        td.text-right = construction.decision_amount.try(:to_s, :delimited)
+        td.text-right
+          - if construction.budget_registrable?
+            = link_to construction.budget_registration_link_str,
+              construction.budget ? edit_contract_construction_budget_path(construction, construction.budget) : new_contract_construction_budget_path(construction)
+        td = construction.construction_division_i18n
+        td = construction.contract_division_i18n
+        td = construction.order_status_i18n
+        td = construction.progress_i18n
+
+= paginate @contract_constructions
