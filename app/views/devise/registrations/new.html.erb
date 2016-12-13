@@ -1,10 +1,10 @@
 <div class ="row">
   <div class ="col m6 offset-m3 center">
 
-    <h5>Sign up</h5>
-    <%= link_to "sign up with Facebook", user_omniauth_authorize_path(:facebook), class: "btn blue darken-4" %>
+    <p>ユーザ登録して動画を見よう!</p>
+    <%= link_to "sign with Facebook", user_facebook_omniauth_authorize_path, class: "btn blue darken-4" %>
     <br/><br/>
-    <%= link_to "sign up with Github", user_omniauth_authorize_path(:github), class: "btn grey darken-2" %>
+    <%= link_to "sign up with Github", user_github_omniauth_authorize_path, class: "btn grey darken-2" %>
 
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
