@@ -1,2 +1,0 @@
-class CompanySubClassification < ApplicationRecord
-end
