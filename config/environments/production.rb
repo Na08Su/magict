@@ -7,7 +7,9 @@ Rails.application.configure do
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.assets.js_compressor = :uglifier
 
-  config.assets.compile = false
+  config.serve_static_assets = true
+  # config.serve_static_files 
+  config.assets.compile = true  
   config.assets.digest = true
   config.log_level = :debug
   config.i18n.fallbacks = true
