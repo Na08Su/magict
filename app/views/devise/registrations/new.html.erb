@@ -2,9 +2,9 @@
   <div class ="col m6 offset-m3 center">
 
     <p>ユーザ登録して動画を見よう!</p>
-    <%= link_to "sign with Facebook", user_facebook_omniauth_authorize_path, class: "btn blue darken-4" %>
+    <%= link_to "sign with Facebook", user_facebook_omniauth_authorize_path, class: "btn blue darken-4 z-depth-5" %>
     <br/><br/>
-    <%= link_to "sign up with Github", user_github_omniauth_authorize_path, class: "btn grey darken-2" %>
+    <%= link_to "sign up with Github", user_github_omniauth_authorize_path, class: "btn pink lighten-1 z-depth-5" %>
 
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -15,12 +15,13 @@
         <%= f.text_field :name, autofocus: true, class: "validate", placeholder: "名前" %>
       </div>
       <div class="input-field">
-        <%= f.email_field :email, class: "validate", placeholder: "Eメールアドレス" %>
+        <%= f.email_field :email, autofocus: true, class: "validate", placeholder: "Eメールアドレス" %>
       </div>
       <div class="input-field">
         <%= f.password_field :password, autocomplete: "off", class: "validate", placeholder: "パスワード" %>
       </div>
       <button class="btn waves-effect waves-light" type="submit" name="action">新規登録</button>
     <% end %>
+
   </div>
 </div>

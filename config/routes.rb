@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout', :edit => 'profile' }, :controllers => { :omniauth_callbacks => 'omniauth_callbacks' }
 
-  get 'pages/about'
-  get '/myprojects' => 'projects#list'
+  get  'pages/about'
+  get  'pages/landing' => 'pages#landing'
+  get  '/myprojects' => 'projects#list'
   post '/free' => 'charges#free'
   post '/pay'  => 'charges#pay'
-
   root 'projects#index'
 
   resources :projects do
@@ -17,6 +17,5 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :reviews, only: [:create, :destroy]
-
   end
 end

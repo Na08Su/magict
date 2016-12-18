@@ -1,0 +1,168 @@
+@import "materialize";
+// Landing CSS
+
+// body { background: #f06292; }
+
+body {
+	margin: 0;
+}
+
+header {
+	padding-top: 50px;
+	padding-right: 150px;
+	clear: both;
+}
+// parts
+
+.p25 {
+	padding: 25px;
+}
+.p50 {
+	padding: 50px;
+}
+.p75 {
+	padding: 75px;
+}
+.w200{
+	width: 200px;
+}
+.h200 {
+	height: 200px;
+}
+
+
+.top30 { padding-top: 30px; }
+
+.over {
+	overflow: hidden;
+}
+
+
+// header
+
+//logo
+.image {
+	padding-left: 160px;
+}
+
+
+#none-style {
+  // padding-top: 100px;
+  // padding-right: 100px;
+  height: 50px;
+  width: 150px;
+  text-decoration: none;
+  // color: #f1220f;
+  color: white;
+  font-weight: bold;
+  // border: 0.5px solid #f1220f;
+  border: 0.8px solid white;
+  border-radius: 3px;
+  opacity: 0.6;
+  }
+
+#none-style:hover {
+  // color: white;
+  // background-color: #f1220f;
+  background-color: rgba(255, 255, 255, 1.0);
+  color: #bbdefb;
+  transition: all 0.4s;
+  font-weight: bold;
+}
+
+.head-title {
+	text-align: center;
+	padding-top: 12px;
+	margin-top: 12px;
+}
+
+/////////////////////
+
+
+
+
+
+.backimg {
+	height: 1057px;
+	// background-image: url("g8xdo1q1kig-rachael-walker.jpg") たまご;
+	// background-image: url("hns9twcifzq-sidharth-bhatia.jpg") ビーチ;
+	background-image: url("ojvirvbkwp8-lukas-becker.jpg");
+
+	background-position: center center;
+	/* 画像をタイル状に繰り返し表示しない */
+	background-repeat: no-repeat;
+	/* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+	background-attachment: fixed;
+	/* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+	background-size: cover;
+	// background: rgba(255,0,0,0.3);
+}
+
+.imgtransparent{
+	height: 1057px;
+	background-color: rgba(255, 255,255, 0.2);
+}
+
+.context h1{
+	margin: 0;
+	padding-top: 150px;
+	color: white;
+	// opacity: 0.3;
+	// font-family: sans-serif, "游ゴシック", serif,;
+	font-family: arial, sans-serif;
+
+	font-size: 78px;
+	letter-spacing: 9px;
+	// text-shadow: 2px 1px #000;
+	text-align: center;
+	// font-weight: bold;
+	clear: both;
+}
+.context h3, p{
+	color: white;
+	text-align: center;
+}
+
+.register {
+	text-align: center;
+	// overflow: hidden;
+	clear: both;
+}
+
+.btn {
+	opacity: 0.8;
+}
+
+.facebook{
+	opacity: 0.8;
+}
+.github{
+	opacity: 0.8;
+
+}
+.register > .facebook{
+	// display: inline-block;
+
+}
+
+.box {
+
+}
+
+// description サービス説明部分
+
+.desc1 {
+	padding: 25px;
+}
+.desc2 {
+	padding: 25px;
+}
+.mar20 {
+	margin-right: 20px;
+}
+.desc3 {
+	padding: 25px;
+}
+// p.black-text {
+// 	color: black;
+// }
