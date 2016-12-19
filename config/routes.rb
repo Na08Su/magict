@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   get  '/myprojects' => 'projects#list'
   post '/free' => 'charges#free'
   post '/pay'  => 'charges#pay'
+  
+  # constraints ->  request { request.session[:user_id].present? } do
+  #   # ログインしてる時のパス
+  #   root to: "projects#index"
+  # end
   root 'projects#index'
+  # root 'pages#landing'
 
   resources :projects do
     resources :tasks, only: [:show]
