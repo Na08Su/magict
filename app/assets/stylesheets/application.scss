@@ -10,6 +10,28 @@ body {
 main {
   flex: 1 0 auto;
   }
+
+  li {
+    // color: black;
+  }
+// header
+.h95 {
+  height: 95px;
+}
+
+.image {
+  padding: 15px;
+  height : 75px;
+  // background-color: red;
+}
+
+.black-text {
+  color: black;
+  font-weight: bold;
+}
+
+
+
 /* 大きいimageを小さくする */
 .resize{
   height: 450px;

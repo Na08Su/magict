@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, only: [:list]
+  before_action :authenticate_user! , only: [:list]
 
   def index
     @projects = Project.all
+    # puts 'でバッググッグググググg'
+    # puts User.find(session[:user_id])
   end
 
   def show
