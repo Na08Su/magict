@@ -1,0 +1,94 @@
+/* line 9, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .disclose {
+  cursor: pointer;
+  width: 10px;
+  display: none;
+}
+/* line 15, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable .resource_selection_toggle_panel {
+  padding-left: 12px;
+}
+/* line 18, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable > ol {
+  margin: 16px 0;
+}
+/* line 21, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol {
+  list-style-type: none;
+  padding: 0;
+}
+/* line 25, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li {
+  cursor: default !important;
+}
+/* line 28, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li.placeholder {
+  height: 3em;
+  background: white;
+  border: 1px dashed #d9e4ec;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 34, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li.placeholder.cantdoit {
+  border: 1px dashed #ff5757;
+}
+/* line 37, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li .item {
+  width: 100%;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+}
+/* line 20, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bourbon-4.2.7/app/assets/stylesheets/addons/_clearfix.scss */
+body.active_admin .index_as_sortable ol li .item::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+/* line 43, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li .item.even {
+  background: white;
+}
+/* line 46, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li .item.odd {
+  background: #f4f5f5;
+}
+/* line 49, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li .item .cell {
+  margin: 0;
+  padding: 10px 12px 8px 12px;
+}
+/* line 53, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li .item h3.cell {
+  font-size: 16px;
+  line-height: 14px;
+  color: black;
+}
+/* line 59, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol.ui-sortable li .item:hover {
+  cursor: move;
+  background-color: #d9e4ec;
+}
+/* line 63, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol > li > ol {
+  margin-left: 30px;
+}
+/* line 66, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li.mjs-nestedSortable-collapsed > ol {
+  display: none;
+}
+/* line 69, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li.mjs-nestedSortable-branch > div > .disclose {
+  display: block;
+  float: left;
+  padding: 10px 5px 8px 5px;
+}
+/* line 74, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li.mjs-nestedSortable-collapsed > div > .disclose > span:before {
+  content: "+ ";
+}
+/* line 77, /Users/natsukisugawara/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/active_admin-sortable_tree-0.2.1/app/assets/stylesheets/active_admin/sortable.css.sass */
+body.active_admin .index_as_sortable ol li.mjs-nestedSortable-expanded > div > .disclose > span:before {
+  content: "- ";
+}
