@@ -1,0 +1,38 @@
+
+
+
+
+
+
+<script type="text/javascript">
+	//alert('明日頑張れよ！');
+	var i1 = 67;
+	var i2 = 103;
+	//alert(i1 + i2);
+
+	document.write("<h1>ようこそJSの世界へ！</h1>");
+	document.bgColor = 'gray';
+	document.fgColor = 'blue';
+
+	var height;
+	var weight;
+	//height = prompt('身長を入力してください', 150); //入力ボックスが生成される
+	//stdWeight = (height - 100) * 0.9;
+	//document.write("身長", height, 'cm', "<br>");
+	//document.write('標準体重は', stdWeight, "Kgだよ");
+
+	var ave = 80;
+	var score;
+	score = prompt('点数を入力してね-', 80);
+
+	if (score >= ave) {
+		document.write("<h3>合格です！</h3>");
+		document.write("<p>おめでとう！</p>");
+	}
+
+	var now;
+	now = new Date();
+	date = now.getFullYear() + "年" + (now.getMonth() + 1) + "月" + now.getDate() + '日';
+	document.write("<h2>", date, "</h2>");
+
+</script>
