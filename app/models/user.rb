@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :projects, through: :subscriptions
   has_many :reviews
   has_many :requests
+  has_many :likes, dependent: :destroy
   # after_create :send_notification
 
   # def send_notification

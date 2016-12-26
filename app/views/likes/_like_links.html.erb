@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+    <% if current_user.likes.find_by(request_id: request) %>
+
+      <%= link_to "取り消す", unlike_path(@request.id), method: :delete, remote: true, class: "btn pink" %>
+    <% else %>
+      <%= link_to 'いいね!',like_path(@request.id),     method: :post , remote: true,class: "btn btn-primary red" %>
+    <% end %>
+
+<% else %>
+  <p>ログインしてください</p>
+
+<% end %>

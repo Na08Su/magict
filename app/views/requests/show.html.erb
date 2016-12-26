@@ -1,0 +1,44 @@
+<% if current_user.id = @request.user_id %>
+	<p><%= link_to '編集', edit_request_path(@request) %></p>
+	<p><%= link_to 'このリクエストを削除', request_path, method: :delete %></p>
+<% end %>
+
+
+
+<div class="row">
+	<div class="col s12">
+		<h5 class='pad50-top pad50-bottom'><%= @request.title %></h5>
+	</div>
+
+	<div class="col s8">
+		<div class="card-panel white lighten-5 z-depth-2">
+			<p><%= @request.description %></p>
+			<p></p>
+			<p></p>
+		</div>
+	</div>
+	
+
+	<div class="col s4"><!-- 投稿フォームに進む -->
+
+		<div id = "like-link">
+			<%= render 'likes/like_links', request: @request %>
+		</div>
+		<p><%= link_to @request.likes.count, root_path, id: "like-count" %>人がいいね!</p>
+	</div>
+</div>
+
+<div class="row">
+	
+
+<%# 他のユーザからのコメント欄 %>
+<p>ググれよボケ！！！！ by rubist</p>
+<%# ソリューション %>
+<p>動画作ったので見てくださいなー by moober</p>
+<p>メタプログラミングとかの領域も勉強しないと難しいかもねー by 高橋さん</p>
+
+
+
+</div>
+
+
