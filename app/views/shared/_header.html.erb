@@ -2,12 +2,15 @@
 <ul id = "dropdown1" class="dropdown-content mask">
   <li><%= link_to "プロフィール", edit_user_registration_path %></li>
   <li><%= link_to "受講している動画", myprojects_path %></li>
+  <li><%= link_to '動画のリクエスト', requests_path  %></li>
+  
   <li class="divider"></li>
   <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 </ul>
 <ul id = "dropdown2" class="dropdown-content mask">
   <li><%= link_to "プロフィール", edit_user_registration_path %></li>
   <li><%= link_to "受講している動画", myprojects_path %></li>
+  <li><%= link_to '動画のリクエスト', requests_path  %></li>
   <li class="divider"></li>
   <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 </ul>

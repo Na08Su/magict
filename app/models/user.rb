@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates :name, presence: true, length: { maximum: 25 }
+  
   has_many :subscriptions #subscriptionとは....課金的な意味合い?
   has_many :projects, through: :subscriptions
   has_many :reviews
+  has_many :requests
   # after_create :send_notification
 
   # def send_notification
