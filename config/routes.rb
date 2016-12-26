@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get  '/myprojects' => 'projects#list'
   post '/free' => 'charges#free'
   post '/pay'  => 'charges#pay'
+
+  # likeアクションへのルーティングを定義
+  post '/like/:request_id' => 'likes#like',as: 'like'
+  # unlikeアクションへのルーティングを定義
+  delete '/unlike/:request_id' => 'likes#unlike',as: 'unlike'
   
   # constraints ->  request { request.session[:user_id].present? } do
   #   # ログインしてる時のパス

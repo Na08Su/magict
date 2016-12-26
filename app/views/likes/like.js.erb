@@ -1,0 +1,5 @@
+$('#like-link').html('<%= escape_javascript(render("likes/like_links",request: @request)) %>');
+
+// jsファイルの書き換える内容でも、同様にrenderメソッドでパーシャルを呼び出します。
+// ただし、jsファイル内でrenderメソッドを用いる場合は「escape_javascript」メソッドでrender部分を囲む必要があります。
+$('#like-count').html('<%= @request.likes.count %>'); //リロードしなくても瞬時に数が変わる
