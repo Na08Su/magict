@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   resources :projects do
     resources :reviews, only: [:create, :destroy]
   end
+
+  resources :requests
 end
