@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, :path => '', :path_names => { :sign_in => 'login', :sign_out => 'logout', :edit => 'profile' }, :controllers => { :omniauth_callbacks => 'omniauth_callbacks' }
 
   get  'pages/about'
-  get  'pages/javasc_pra'
+  get  'pages/javasc_pra' => 'pages#javasc_pra'
   get  'pages/landing' => 'pages#landing'
   get  '/myprojects' => 'projects#list'
   post '/free' => 'charges#free'

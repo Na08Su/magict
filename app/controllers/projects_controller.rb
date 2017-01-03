@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @tasks   = @project.tasks.order(:tag)
 
-    @joined = false # ??
+    @joined = false # 初期値
 
     if !current_user.nil? && !current_user.projects.nil?
       @joined = current_user.projects.include?(@project)

@@ -1,6 +1,26 @@
+<ul>
+	<li><h3>jsの練習</h3></li>
+	<li><h5>後で勉強する項目</h5></li>
+	<li>位置情報</li>
+	<li>画面に遷移しないでダイアログから会員登録できるようにする</li>
+	<li></li>
+</ul>
+
+<p>言語適正占い(viewに表示させるようにする)</p>
 
 
 
+
+<!-- 60行目から処理-->
+<%= image_tag 'pacman.png', id:'myChar', width:'32', height:'32', style:"position:absolute;top:50px;left:0px;"%>
+<!-- <img src= 'pacman.png' id='myChar' width='32' height='32' style="position:absolute;top:50px;left:0px;"> -->
+<form>
+	<input type="button" value="移動" onclick="mc.next()">
+	<input type="button" value="リスタート" onclick="mc.send(true)">
+	<input type="button" value="終了" onclick="mc.close()">
+</form>
+<h1>前のページ</h1>
+<div id="result"></div>
 
 
 
@@ -23,10 +43,10 @@
 
 	var ave = 80;
 	var score;
-	score = prompt('点数を入力してね-', 80);
+	score = prompt('点数を入力してね-', 80); //第２引数は初期値
 
 	if (score >= ave) {
-		document.write("<h3>合格です！</h3>");
+		document.write("<h3>合格です！</h3>"); //文字を表示させる
 		document.write("<p>おめでとう！</p>");
 	}
 
@@ -35,4 +55,44 @@
 	date = now.getFullYear() + "年" + (now.getMonth() + 1) + "月" + now.getDate() + '日';
 	document.write("<h2>", date, "</h2>");
 
+
+
+
+	//オブジェクトの生成/省略
+	function gantan(n) { //gantanメソッド
+		this.kakeruNi = n * 2;
+		this.add = function(param){ return param + 2; }// ブロック内の処理をaddプロパティに返している
+	}
+	var hoge = new gantan(3);
+	//withを使用すると指定したオブジェクト名を省略できる
+	with(document) {
+		write("hoge.kakeruNi= "+hoge.kakeruNi+"<br>");
+		write("hoge.add(5) = "+hoge.add(5));
+	}
+
+	var txt = document.referrer;
+	document.getElementById("result").innerHTML = txt;
+
+	window.onload = function() {
+		var input = window.prompt('文字を入力してください', '初期値');
+		window.alert('入力値:'+ input);
+	};
+</script>
+
+
+<script type="application/javascript;version=1.7">
+	//  mc is not definedat HTMLInputElement.onclickという謎エラーが発生するので諦めるおそらくバージョンとかそういう問題だと思った
+	// ジェネレーター
+	function moveChar(){
+		var x = 0;
+		while(true){
+			x = x+5;
+			if(x > window.innerWidth){ x = 0; }
+			var chr = document.getElementById("myChar");
+			chr.style.left = x+"px";
+			var flag = yield x;
+			if(flag){ x = 0; }
+		}
+	}
+	var mc = moveChar();
 </script>
