@@ -25,4 +25,4 @@ end
 
 
 
-# imageカラムに対してcarrierwaveを使う
+# imageカラムに対してPAPERCLIPを使う

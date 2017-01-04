@@ -19,12 +19,13 @@ Rails.application.configure do
   # paperclipの設定
 
   config.paperclip_defaults = {
-  storage: :s3,
-  s3_region: ENV['ap-northeast-1'],
-  s3_credentials: {
-    bucket: ENV['s3user-magict2017'],
-    access_key_id: ENV['AKIAJMCD5ZVNRFCUSQ3A'],
-    secret_access_key: ENV['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']
+  :storage        => :s3,
+  :bucket         => ENV['S3_BUCKET_NAME'],
+  :s3_region      => ENV['AWS_REGION'],
+  :s3_host_name   => ENV['s3-ap-northeast-1.amazonaws.com']
+  :s3_credentials => {
+    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
   }
 }
   
