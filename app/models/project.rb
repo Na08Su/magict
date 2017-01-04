@@ -15,11 +15,11 @@ class Project < ActiveRecord::Base
                     :storage => :s3,
                     :s3_permissions => :public,
                     s3_credentials: "#{ Rails.root }/config/s3.yml",
-                    path: ":attachment/:id/:style.:extension",
+                    #path: ":attachment/:style.:extension",
                     styles: { medium: "680x300>", thumb: "170x75>" } # peperclip
-  do_not_validate_attachment_file_type :image
+  #do_not_validate_attachment_file_type :image
 
-  #validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ # paperclip
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ # paperclip
 
   def shortname #project#indexで使っている
     name.length > 25? name[0..25] + "..." : name
