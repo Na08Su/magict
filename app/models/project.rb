@@ -11,9 +11,10 @@ class Project < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 250 }
   validates :price,   presence: true, numericality: { only_integer: true }
 
-  has_attached_file :image,
-                    styles: { medium: "680x300>", thumb: "170x75>" } # peperclip
-  #do_not_validate_attachment_file_type :image
+  has_attached_file :image, 
+                    :path => ":attachment/:id/:style.:extension",
+                    styles: { medium: "680x300>", thumb: "170x75>" }, 
+                    default_url: "/images/:style/missing.png" # peperclip
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ # paperclip
 
