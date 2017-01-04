@@ -50,12 +50,4 @@ class PagesController < ApplicationController
   end
 
 end
-# 明日やること
-# 1. Rubyの本を終わらせて図書館に返却
-# 2. ジモティーに連絡
-# 3. JSの勉強
-# 4. 侍サイト見まくる(全部)
-# 5. dive into code も制覇
-# 6. 4, 5日にバイトを入れる
-# 7. slack API使ってみる
 

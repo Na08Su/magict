@@ -1,6 +1,6 @@
 ActiveAdmin.setup do |config|
 
-  config.site_title = "Code4pro"
+  config.site_title = "MAGICT"
 
   config.authentication_method = :authenticate_admin_user!
 

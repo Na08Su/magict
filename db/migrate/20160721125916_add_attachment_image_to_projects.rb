@@ -9,3 +9,5 @@ class AddAttachmentImageToProjects < ActiveRecord::Migration
     remove_attachment :projects, :image
   end
 end
+
+# paperclip

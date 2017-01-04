@@ -22,3 +22,7 @@ permit_params :name, :content, :price, :image
     f.actions
   end
 end
+
+
+
+# imageカラムに対してcarrierwaveを使う
