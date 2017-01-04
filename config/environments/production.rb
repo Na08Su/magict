@@ -21,10 +21,10 @@ Rails.application.configure do
   config.paperclip_defaults = {
   storage: :s3,
   s3_credentials: {
-    bucket: ENV.fetch('s3user-magict2017'),
-    access_key_id: ENV.fetch('AKIAJMCD5ZVNRFCUSQ3A'),
-    secret_access_key: ENV.fetch('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'),
-    s3_region: ENV.fetch('ap-northeast-1'),
+    bucket: ENV['s3user-magict2017'],
+    access_key_id: ENV['AKIAJMCD5ZVNRFCUSQ3A'],
+    secret_access_key: ENV['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'],
+    s3_region: ENV['ap-northeast-1'],
   }
 }
   
