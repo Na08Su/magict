@@ -12,12 +12,14 @@ class Project < ActiveRecord::Base
   validates :price,   presence: true, numericality: { only_integer: true }
 
   has_attached_file :image,
-                    storage: s3,
-                    s3_permissions: public,
+                    :storage => :s3,
+                    :s3_permissions => :public,
                     s3_credentials: "#{ Rails.root }/config/s3.yml",
                     path: ":attachment/:id/:style.:extension",
                     styles: { medium: "680x300>", thumb: "170x75>" } # peperclip
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ # paperclip
+  do_not_validate_attachment_file_type :image
+
+  #validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ # paperclip
 
   def shortname #project#indexで使っている
     name.length > 25? name[0..25] + "..." : name
