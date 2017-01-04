@@ -17,5 +17,15 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
   config.active_record.dump_schema_after_migration = false
   # paperclipの設定
+
+  config.paperclip_defaults = {
+  storage: :s3,
+  s3_credentials: {
+    bucket: ENV.fetch('s3user-magict2017'),
+    access_key_id: ENV.fetch('AKIAJMCD5ZVNRFCUSQ3A'),
+    secret_access_key: ENV.fetch('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'),
+    s3_region: ENV.fetch('ap-northeast-1'),
+  }
+}
   
 end
