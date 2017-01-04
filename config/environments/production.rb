@@ -20,7 +20,7 @@ Rails.application.configure do
 
   config.paperclip_defaults = {
   storage: :s3,
-  s3_region: ENV['ap-northeast-1.amazonaws.com'],
+  s3_region: ENV['ap-northeast-1'],
   s3_credentials: {
     bucket: ENV['s3user-magict2017'],
     access_key_id: ENV['AKIAJMCD5ZVNRFCUSQ3A'],
