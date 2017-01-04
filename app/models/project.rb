@@ -12,9 +12,12 @@ class Project < ActiveRecord::Base
   validates :price,   presence: true, numericality: { only_integer: true }
 
   has_attached_file :image,
-                    :storage => :s3,
+                    storage: :s3,
                     :s3_permissions => :public,
-                    s3_credentials: "#{ Rails.root }/config/s3.yml",
+                    s3_credentials: { bucket: ENV.fetch('s3user-magict2017'),
+                                      access_key_id: ENV.fetch('AKIAJMCD5ZVNRFCUSQ3A'),
+                                      secret_access_key: ENV.fetch('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'),
+                                      s3_region: ENV.fetch('ap-northeast-1') },
                     #path: ":attachment/:style.:extension",
                     styles: { medium: "680x300>", thumb: "170x75>" } # peperclip
   #do_not_validate_attachment_file_type :image
