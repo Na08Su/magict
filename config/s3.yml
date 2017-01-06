@@ -1,4 +1,0 @@
-#bucket: ENV['s3user-magict2017']
-#access_key_id: 'AKIAJMCD5ZVNRFCUSQ3A'
-#secret_access_key: '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'
-#s3_host_name: 'ap-northeast-1'
