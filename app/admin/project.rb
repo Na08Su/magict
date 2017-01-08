@@ -23,6 +23,6 @@ permit_params :name, :content, :price, :image
   end
 end
 
-
+# ファイル選択ボタンの下部に表示するメッセージで、今回は、ユーザー情報変更画面でユーザーにプロフィール画像が存在する場合に、その画像の image タグを表示し、存在しない場合は、メッセージを表示
 
 # imageカラムに対してPAPERCLIPを使う

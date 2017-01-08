@@ -3,6 +3,8 @@
   <li><%= link_to "プロフィール", edit_user_registration_path %></li>
   <li><%= link_to "受講している動画", myprojects_path %></li>
   <li><%= link_to '動画のリクエスト', requests_path  %></li>
+  <li><%= link_to 'article', articles_path  %></li>
+
   
   <li class="divider"></li>
   <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
@@ -11,11 +13,13 @@
   <li><%= link_to "プロフィール", edit_user_registration_path %></li>
   <li><%= link_to "受講している動画", myprojects_path %></li>
   <li><%= link_to '動画のリクエスト', requests_path  %></li>
+  <li><%= link_to 'article', articles_path  %></li>
+
   <li class="divider"></li>
   <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 </ul>
 <header>
-  <nav class ="z-depth-4 "><!-- header部分 -->
+  <nav class ="z-depth-4 under-yellow"><!-- header部分 -->
     <div class="container">
       <div class="nav-wrapper">
 
@@ -24,10 +28,13 @@
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><%= link_to "コース", root_path %></li>
+
           <% if !user_signed_in? %>
             <li><%= link_to "MAGICTとは?", pages_landing_path, method: 'get' %></li>
             <li><%= link_to "新規登録", new_user_registration_path %></li>
             <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><b><%= link_to '記事', articles_path  %></b></li>
+
           <% else %>
           <!-- dropdown trigger -->
           <li><a class="dropdown-button valign-wrapper" href="#!" data-activates="dropdown1">
@@ -42,6 +49,7 @@
           <% if !user_signed_in? %>
             <li><%= link_to "新規登録", new_user_registration_path %></li>
             <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><b><%= link_to '記事', articles_path  %></b></li>
           <% else %>
             <li><a class="dropdown-button valign-wrapper" href="#!" data-activates="dropdown2">
               <%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-small" %>&nbsp;

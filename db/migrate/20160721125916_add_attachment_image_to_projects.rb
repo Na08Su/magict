@@ -11,3 +11,4 @@ class AddAttachmentImageToProjects < ActiveRecord::Migration
 end
 
 # paperclip
+#attachmentは、Paperclipが定義しているファイルで、ファイル情報を保持するための複数のカラムを追加します。

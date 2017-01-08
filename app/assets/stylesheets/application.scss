@@ -11,24 +11,83 @@ body {
   flex-direction: column;
   }
 
+nav {
+  // margin-bottom: 30px;
+  position :fixed;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(1,13,68,0.6);
+
+}
+
+
 main {
+  margin-top: 75px;
   flex: 1 0 auto;
   }
 
-  li {
+footer {
+  // border: medium solid #c2185b;
+  // border-top: medium solid #040915;
+  border-bottom: medium solid #2b9528;
+  // background-color: rgba(241,36,110, 0.9);
+  // border-right: solid 25px rgba(4,13,32,1.0);
+
+  // background-color: rgba(2,20,101,0.2);
+  // background-color: rgba(181,12,73,1.0);
+
+  // background-color: rgba();
+
+}
+
+li {
     // color: black;
-  }
+}
+.none {
+  text-decoration: none;
+}
 
 
 /* コンポーネント */
+.h300 {
+  height: 300px;
+}
+
+.h550 {
+  height: 550px;
+}
+.h1500 {
+  height: 1500px;
+}
+.pad6-bottom {
+  padding-bottom: 6px;
+}
 .pad50-top {
   padding-top: 50px;
+}
+.mar50-top {
+  margin-top: 50px;
+}
+.mar5-top {
+  margin-top: 15px;
 }
 .pad50-bottom {
   padding-bottom: 50px;
 }
+.pad15 {
+  padding: 15px;
+}
+
+.opa {
+  opacity: 0.6;
+}
+
 
 // header
+
+.header-custom {
+  // background-color: rgba()
+}
 .h95 {
   height: 95px;
 }
@@ -44,6 +103,28 @@ main {
   font-weight: bold;
 }
 
+
+.under-yellow {
+  border-bottom: medium solid #cddc39;
+}
+.under {
+  border-bottom: medium solid #c0ca33;
+}
+.under-pink {
+  border-bottom: medium solid #c2185b;
+}
+
+/* footer */
+.footer-copyright{
+  border-top: medium solid #cddc39;
+}
+.border-yoko {
+  border-right: solid 25px rgba(4,13,32,1.0);
+  background-image: url('boygirls.jpg')
+}
+.navy-text {
+  color: rgba(4,13,32,1.0);
+}
 
 
 /* 大きいimageを小さくする */
@@ -66,3 +147,27 @@ main {
 .mask{
   z-index: 99;
 }
+
+
+
+
+/* article 記事  */
+body.articles {
+  background-color: #f5f5f5;
+
+  // background-color: #fafafa;
+}
+
+#articles {
+  background-color: white;
+}
+.title {
+  border-bottom: medium solid; 
+}
+
+.article {
+  padding-top: 45px;
+  padding-left: 24px;
+  padding-left: 24px;
+}
+

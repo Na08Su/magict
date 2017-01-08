@@ -112,7 +112,7 @@
             <span id ="average_rating"></span>
             <p><%= @reviews.count %><%= @reviews.count > 1? "Reviews" : "Review" %></p>
             <hr>
-            <%= @project.content %>
+            <%= simple_format(@project.content) %>
 
             <h4>レビュー</h4>
             <div><%= render 'reviews/form' if @joined && !@hasReview %></div>
