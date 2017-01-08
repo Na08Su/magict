@@ -37,6 +37,11 @@ header {
 	overflow: hidden;
 }
 
+.navy-text {
+	color: rgba(4,13,32,1.0);
+;
+}
+
 
 // header
 
@@ -118,7 +123,7 @@ header {
 	// font-weight: bold;
 	clear: both;
 }
-.context h3,h4, p{
+.context h3, h4, p{
 	color: white;
 	text-align: center;
 }
@@ -171,6 +176,31 @@ header {
 .desc3 {
 	padding: 25px;
 }
-// p.black-text {
-// 	color: black;
-// }
+
+
+/* footer */
+.footer-copyright{
+  border-top: medium solid #cddc39;
+}
+.border-yoko {
+  border-right: solid 25px rgba(4,13,32,1.0);
+  background-image: url('boygirl.jpg')
+}
+.navy-text {
+  color: rgba(4,13,32,1.0);
+}
+
+footer {
+  // border: medium solid #c2185b;
+  // border-top: medium solid #040915;
+  border-bottom: medium solid #2b9528;
+  // background-color: rgba(241,36,110, 0.9);
+  // border-right: solid 25px rgba(4,13,32,1.0);
+
+  // background-color: rgba(2,20,101,0.2);
+  // background-color: rgba(181,12,73,1.0);
+
+  // background-color: rgba();
+
+}
+

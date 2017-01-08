@@ -1,24 +1,33 @@
-<footer class="page-footer z-depth-5">
+<!-- <footer class="page-footer z-depth-5"> -->
+<footer class='hoge border-yoko'>
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
-        <h5 class="white-text">プログラミングを動画で学習できるサービス</h5>
-        <p class="grey-text text-lighten-4">MAGICTは動画で分かりやすくRuby/Ruby on Railsの勉強ができる初心者の方におすすめの動画学習サイトです。みんなで協力しあってRubyを学びましょう!!!!!!!要望等ありましたらメッセージください、Qiitaの動画版みたいなのになって欲しいです</p>
+        <!-- <h5 class="navy-text"><b>プログラミングを動画で学習できるサービス</b></h5> -->
+        <p class="navy-text text-lighten-4">
+        <b>MAGICTは動画で分かりやすくRuby/Ruby on Railsの勉強ができる初心者の方におすすめの動画学習サイトです。みんなで協力しあってRubyを学びましょう!!!!!!!要望等ありましたらメッセージください、Qiitaの動画版みたいなのになって欲しいです</b></p>
       </div>
       <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">ソーシャル</h5>
+        <!-- <h5 class="white-text">ソーシャル</h5> -->
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Google</a></li>
+            <li><b><a class="navy-text text-lighten-3" href="#!">Twitter</a></b></li>
+            <li><b><a class="navy-text text-lighten-3" href="#!">Facebook</a></b></li>
+            <li><b><a class="navy-text text-lighten-3" href="#!">Google</a></b></li>
           </ul>
       </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-    © 2016 natsuki sugawara
-    <%= link_to "About us", pages_about_path, class: 'gray-text text-lighten-4 right' %>
+      <div class="col l2 s12">
+        <!-- <h5 class="white-text">Articles</h5> -->
+        <ul>
+          <li><b><%= link_to 'Rubyメディアもやってます! check it!', articles_path, class: 'navy-text text-lighten-3' %></b></li>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>
+  <div class="footer-copyright pink accent-3">
+    <div class="container">
+    <span style='color:white;'>© 2016 natsuki sugawara</span>
+    <%= link_to "About us", pages_about_path, class: 'white-text text-lighten-4 right none' %>
+    </div>
+  </div>
+
