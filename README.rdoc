@@ -13,3 +13,4 @@ MAGICK マジックエッグ MGICK MAGIK TREE CODE TREE MAGICTRE(マジクトレ
 実装順序
 1.media機能
 2.カレンダーに日記をつけることができる機能
+sshミスる
