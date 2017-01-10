@@ -15,7 +15,7 @@ ActiveAdmin.register Article do
 		f.inputs do
 			f.input :title
 			f.input :content
-			f.input :image#, hint: f.article.image? ? image_tag(article.image.url, height: '100') : content_tag(:span, "upload JPG/PNG/GIF image")
+			f.input :image #, hint: f.article.image? ? image_tag(article.image.url, height: '100') : content_tag(:span, "upload JPG/PNG/GIF image")
 		end
 		f.actions
 	end

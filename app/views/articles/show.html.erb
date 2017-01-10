@@ -21,24 +21,8 @@
 
 </head>
 <body class='<%= "#{ controller.controller_name }" %>'>
-<nav>
-  <div class="nav-wrapper header-custom under">
-    <a href="#!" class="brand-logo">media</a>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    </ul>
-  </div>
-</nav>
+<%= render 'header' %>
+
 <%#= render 'shared/header' %>
 <%#= render 'shared/message' %>
 <main>
@@ -73,7 +57,7 @@
         <% @articles.each do |article| %>
           <br>
 
-          <div class='card-panel hoverable white lighten-5 h300 article-box'>
+          <div class='card-panel hoverable white lighten-5 h300'>
             <div class="card-image waves-effect waves-block waves-light" style='height: 200px'>
               <%= image_tag article.image %>
             </div>
@@ -85,46 +69,19 @@
   </div>
 </div>
 
-<%= controller.controller_name %>
 
 
 
 <%= controller.controller_name %>
-<!--       <div class="container">
-        <%#= yield %>
-      </div> -->
+
 </main>
 <%= debug(params) if Rails.env.development? %>
 
   <%#= render 'shared/footer' %>
 
 </body>
-
+</html>
 <script>
   $(".button-collapse").sideNav();
   $(".dropdown-button").dropdown();
-
-
-
-  //$(".button-collapse").sideNav();
-
 </script>
-
-</html>
-
-
-<!-- article -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,6 @@
+      <li>
+      <%= search_form_for @q, class: 'inline' , url: articles_path do |f| %>
+          <li><%= f.search_field :title_cont, placeholder: '記事検索' %></li><%#= f.submit '○' %>
+      <li><button class='btn btn-floating btn-large hoverable red' type='submit'><i class="tiny material-icons">search</i></button><li>
+      <% end %>
+      </li>

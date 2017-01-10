@@ -11,8 +11,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'materialize-sass'
 gem 'devise'
+gem 'ransack' # 検索
 gem 'toastr-rails'
 gem 'omniauth'
+
 
 gem 'omniauth-facebook'
 gem 'omniauth-github' #task4

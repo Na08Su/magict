@@ -28,8 +28,11 @@
   </script>
   <!--End of Zopim Live Chat Script-->
 
+
 </head>
 <body class='<%= "#{ controller.controller_name }" %>'>
+
+
 
   <%= render 'shared/header' %>
   <%= render 'shared/message' %>
@@ -38,16 +41,12 @@
         <%= yield %>
       </div>
     </main>
-      <%= debug(params) if Rails.env.development? %>
+    <%= debug(params) if Rails.env.development? %>
 
   <%= render 'shared/footer' %>
 
-
 </body>
-
-<script>
-  $(".button-collapse").sideNav();
-  $(".dropdown-button").dropdown();
-</script>
-
 </html>
+
+
+

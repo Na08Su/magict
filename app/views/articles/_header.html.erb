@@ -1,0 +1,22 @@
+<nav class='grey darken-4 z-depth-4 under-yellow'>
+<div class="container">
+  <div class="nav-wrapper">
+    <a href="/articles" class="brand-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="ようこそ！Rubyを中心としたプログラミングメディアです！">MAGICT MEDIA</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <%= render 'ransack' %>
+
+      <li><b><a href="/">プログラミング動画のMAGICTで学ぶ</a></b></li>
+    </ul>
+
+    <ul class="side-nav" id="mobile-demo">
+      <li><b><a href="/">プログラミング動画のMAGICTで学ぶ</a></b></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<script>
+  $(".button-collapse").sideNav();
+  $(".dropdown-button").dropdown();
+</script>

@@ -21,63 +21,49 @@
 
 </head>
 <body class='<%= "#{ controller.controller_name }" %>'>
-<nav>
-  <div class="nav-wrapper header-custom under">
-    <a href="#!" class="brand-logo">media</a>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    </ul>
-  </div>
-</nav>
-<%#= render 'shared/header' %>
-<%#= render 'shared/message' %>
+<%= render 'header' %>
+
 <main>
 <div class="row">
-  <div class="search center">
-    <h1>検索</h1>
+  <div id='<%= "#{ controller.controller_name }" %>' class='col m12 l12 h300 white'>
+    <div class='center s12 m12 l12'>
+      <%= image_tag 'MEDIA.jpg', class: 'logo tooltipped', "data-position" => :right, "data-delay" => "50", "data-tooltip" => "プログラミングメディアのMAGICTです！" %>
+    </div>
+  </div>
+  <!-- <hr> -->
+</div>
+<div class="row">
+  <div class="center">
+    <%#= image_tag 'beta.jpg', class: 'logo center' %>
+    <p class='around'>MEDIAアイウエオ</p>
   </div>
 </div>
-<div class="row mar50-top">
-  <div id='<%= "#{ controller.controller_name }" %>' class='col m12 l12 h550'>
-    <p>hogehgoehgeohgeo</p>
-    <p>hogehgoehgeohgeo</p>
-    <p>hogehgoehgeohgeo</p>
-    <p>hogehgoehgeohgeo</p>
-    <p>hogehgoehgeohgeo</p>
-    <p>hogehgoehgeohgeo</p>
-    <p>hogehgoehgeohgeo</p>
-    <p>hogehgoehgeohgeo</p>
-
+<div class="row">
+  <div id='<%= "#{ controller.controller_name }" %>' class='col m8 l8 s12 h350 white'>
+    <p>左に大きく1記事(左右に切り替わるやつ)</p>
+    <h5>タイトル</h5>
   </div>
-  <hr>
+  <div class="col m4 l4 s12 h350 white" style='border-left: 1px solid black;'>
+    <p>右には小さく1記事</p>
+  </div>
 </div>
 
 
 <div class="row" data-no-turbolink >
 <br/>
 
-<% @articles.each do |article| %>
+<% @search_articles.each do |article| %>
     <%= link_to article do %>
       <div class="col s12 m6 l4">
-        <div class="card hoverable">
-          <div class="card-image waves-effect waves-block waves-light" style="height: 130px">
+        <div class="card-panel hoverable h300 white lighten-5">
+          <div class="card-image waves-effect waves-block waves-light" style='height: 200px'>
 
             <%= image_tag article.image %>
           </div>
 
-          <div class="card-content" style="height: 6em">
+          <div class="card-content" style="height: 5em">
             <span class="card-title grey-text text-darken-4 truncate">
-              <%= article.title %>
+            <%= article.title %>
             </span>
           </div>
         </div>
@@ -87,27 +73,17 @@
 </div>
 
 <%= controller.controller_name %>
-<!--       <div class="container">
-        <%#= yield %>
-      </div> -->
+
 </main>
 <%= debug(params) if Rails.env.development? %>
 
-  <%#= render 'shared/footer' %>
+  <%= render 'shared/footer' %>
 
 </body>
 
 <script>
   $(".button-collapse").sideNav();
   $(".dropdown-button").dropdown();
-
-
-
-  //$(".button-collapse").sideNav();
-
 </script>
 
 </html>
-
-
-<!-- article -->

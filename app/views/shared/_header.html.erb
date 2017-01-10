@@ -1,63 +1,72 @@
-  <!-- Dropdown structure -->
-<ul id = "dropdown1" class="dropdown-content mask">
-  <li><%= link_to "プロフィール", edit_user_registration_path %></li>
-  <li><%= link_to "受講している動画", myprojects_path %></li>
-  <li><%= link_to '動画のリクエスト', requests_path  %></li>
-  <li><%= link_to 'article', articles_path  %></li>
 
-  
-  <li class="divider"></li>
-  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-</ul>
-<ul id = "dropdown2" class="dropdown-content mask">
-  <li><%= link_to "プロフィール", edit_user_registration_path %></li>
-  <li><%= link_to "受講している動画", myprojects_path %></li>
-  <li><%= link_to '動画のリクエスト', requests_path  %></li>
-  <li><%= link_to 'article', articles_path  %></li>
+<nav class ="z-depth-4 under-yellow"><!-- header部分 -->
 
-  <li class="divider"></li>
-  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-</ul>
-<header>
-  <nav class ="z-depth-4 under-yellow"><!-- header部分 -->
-    <div class="container">
-      <div class="nav-wrapper">
+  <div class="container">
+    <div class="nav-wrapper">
 
-        <a href="/" class="brand-logo">MAGICT</a>
-        <%#= link_to 'MAGICT', root_path, method: 'get' %>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><%= link_to "コース", root_path %></li>
+      <a href="/" class="brand-logo">MAGICT</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to "コース", root_path %></li>
 
-          <% if !user_signed_in? %>
-            <li><%= link_to "MAGICTとは?", pages_landing_path, method: 'get' %></li>
-            <li><%= link_to "新規登録", new_user_registration_path %></li>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
-            <li><b><%= link_to '記事', articles_path  %></b></li>
+        <% if !user_signed_in? %>
+          <li><%= link_to "MAGICTとは?", pages_landing_path, method: 'get' %></li>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><b><%= link_to '記事', articles_path  %></b></li>
 
-          <% else %>
-          <!-- dropdown trigger -->
-          <li><a class="dropdown-button valign-wrapper" href="#!" data-activates="dropdown1">
+        <% else %>
+        <!-- 右端のリストが表示される -->
+          <li>
+            <a class="dropdown-button valign-wrapper" href="#" data-activates="dropdown1">
             <%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-small" %>&nbsp;
-            <%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a></li>
-          <% end %>
-        </ul>
+            <%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a>
+            <ul id = "dropdown1" class="dropdown-content">
+              <li><%= link_to "プロフィール", edit_user_registration_path %></li>
+              <li><%= link_to "受講している動画", myprojects_path %></li>
+              <li><%= link_to '動画のリクエスト', requests_path  %></li>
+              <li><%= link_to 'Ruby記事まとめ', articles_path  %></li>
+              
+              <li class="divider"></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+      
+      <!-- ハンバーガーアイコン -->
+      <ul class="side-nav" id="mobile-demo">
+        <li><%= link_to "コース一覧", root_path %></li>
 
-        <ul class="side-nav" id="mobile-demo">
-          <li><a href="sass.html">Sass</a></li>
-          <li><%= link_to "コース", root_path %></li>
-          <% if !user_signed_in? %>
-            <li><%= link_to "新規登録", new_user_registration_path %></li>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
-            <li><b><%= link_to '記事', articles_path  %></b></li>
-          <% else %>
-            <li><a class="dropdown-button valign-wrapper" href="#!" data-activates="dropdown2">
-              <%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-small" %>&nbsp;
-              <%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+        <% if !user_signed_in? %>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><b><%= link_to '記事', articles_path  %></b></li>
+        <% else %>
+        <!-- ログインしてたら....以下 -->
+          <li>
+            <a class="dropdown-button" href="#" data-activates="dropdown2">ドロップダウン</a>
+            <ul class='dropdown-content' id='dropdown2'>
+                <li>少し待ってください</li>
+                <li class='divider'>ログアウト</li>
+
+
+                <%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-small" %>&nbsp;
+              <%= current_user.name %><i class="material-icons right">arrow_drop_down</i>
+            </ul>
+          <li>検索</li>
+        <% end %>
+
+      </ul>
+
     </div>
-  </nav>
-</header>
+  </div>
+</nav>
+<!-- </div> -->
+<!-- </header> -->
+
+<script>
+  $(".dropdown-button").dropdown();
+  $('.button-collapse').sideNav(); //ハンバーガーが開く
+</script>
+
