@@ -54,12 +54,19 @@ li {
     // color: black;
 }
 
+img .tooltipped {
+  background-color: red;
+}
+
 
 
 .none {
   text-decoration: none;
 }
 
+.pad0 {
+  padding: 0;
+}
 
 /* コンポーネント */
 .h200{
@@ -74,7 +81,9 @@ li {
 .h350 {
   height: 350px;
 }
-
+.h450 {
+  height: 450px;
+}
 .h550 {
   height: 550px;
 }
@@ -186,6 +195,7 @@ body.articles {
 
 #articles {
   // background-color: white;
+  padding: 0;
 }
 .title {
   border-bottom: medium solid; 
@@ -213,6 +223,9 @@ body.articles {
   transition: all 0.4s;
   font-weight: bold;
 
+}
+.slider {
+  // margin: 0;
 }
 
 button {

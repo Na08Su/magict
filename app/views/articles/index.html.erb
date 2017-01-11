@@ -27,7 +27,7 @@
 <div class="row">
   <div id='<%= "#{ controller.controller_name }" %>' class='col m12 l12 h300 white'>
     <div class='center s12 m12 l12'>
-      <%= image_tag 'MEDIA.jpg', class: 'logo tooltipped', "data-position" => :right, "data-delay" => "50", "data-tooltip" => "プログラミングメディアのMAGICTです！" %>
+      <%= image_tag 'MEDIA.jpg', class: 'logo tooltipped', "data-position" => :right, "data-delay" => "50", "data-tooltip" => "プログラミングメディアのMAGICTです！", style: "background-color: red;" %>
     </div>
   </div>
   <!-- <hr> -->
@@ -39,11 +39,41 @@
   </div>
 </div>
 <div class="row">
-  <div id='<%= "#{ controller.controller_name }" %>' class='col m8 l8 s12 h350 white'>
-    <p>左に大きく1記事(左右に切り替わるやつ)</p>
-    <h5>タイトル</h5>
+  <div id='<%= "#{ controller.controller_name }" %>' class='col m8 l8 s12 white'>
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
   </div>
-  <div class="col m4 l4 s12 h350 white" style='border-left: 1px solid black;'>
+  </div>
+  <div class="col m4 l4 s12 white" id='articles'>
     <p>右には小さく1記事</p>
   </div>
 </div>
@@ -84,6 +114,15 @@
 <script>
   $(".button-collapse").sideNav();
   $(".dropdown-button").dropdown();
+
+  $(document).ready(function(){
+      $('.slider').slider({full_width: true, indicators: false, height: 400, interval: 2400});
+      $('.slider').slider('next');
+
+    });
+  // $('.slider').slider('next');
+  // // Previous slide
+  // $('.slider').slider('prev');
 </script>
 
 </html>
