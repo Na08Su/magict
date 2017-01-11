@@ -26,7 +26,7 @@
 <main>
 <div class="row">
   <div id='<%= "#{ controller.controller_name }" %>' class='col m12 l12 h300 white'>
-    <div class='center s12 m12 l12'>
+    <div class='center s12 m12 l12 pad50-top'>
       <%= image_tag 'MEDIA.jpg', class: 'logo tooltipped', "data-position" => :right, "data-delay" => "50", "data-tooltip" => "プログラミングメディアのMAGICTです！", style: "background-color: red;" %>
     </div>
   </div>
@@ -73,8 +73,9 @@
     </ul>
   </div>
   </div>
+  <!-- 右のarticle -->
   <div class="col m4 l4 s12 white" id='articles'>
-    <p>右には小さく1記事</p>
+    <%= image_tag 'cars.jpg', class: 'h400' %>
   </div>
 </div>
 
@@ -117,7 +118,6 @@
 
   $(document).ready(function(){
       $('.slider').slider({full_width: true, indicators: false, height: 400, interval: 2400});
-      $('.slider').slider('next');
 
     });
   // $('.slider').slider('next');
