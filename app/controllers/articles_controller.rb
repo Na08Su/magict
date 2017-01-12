@@ -2,10 +2,12 @@ class ArticlesController < ApplicationController
 	def index
 		set_search
 		@search_articles = @q.result.order(created_at: :desc)
-		@move_article = Article.order(created_at: :asc).limit(5) # jqueryで左右に流れる
-		render :layout => false
+		@move_article = Article.order(created_at: :asc).limit(4) # jqueryで左右に流れる
+		@right_article = Article.find(2)
 
+		render :layout => false
 	end
+
 	def show
 		set_search
 		@article = Article.find(params[:id])

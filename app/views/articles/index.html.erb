@@ -35,81 +35,73 @@
 <div class="row">
   <div class="center">
     <%#= image_tag 'beta.jpg', class: 'logo center' %>
-    <p class='around'>MEDIAアイウエオ</p>
+    <p class='around'>Helloo!</p>
   </div>
 </div>
 <div class="row">
   <div id='<%= "#{ controller.controller_name }" %>' class='col m8 l8 s12 white'>
   <div class="slider">
     <ul class="slides">
-      <li>
-        <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-        <div class="caption left-align">
-          <h3>Left Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-        <div class="caption right-align">
-          <h3>Right Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
+      <% @move_article.each do |move| %>
+        <li>
+          <%= link_to image_tag(move.image), article_path(move) %>
+          <div class="caption center-align">
+            <h5><%= move.title %></h5>
+
+            <h5 class="light grey-text text-lighten-3">Check it!!!</h5>
+          </div>
+        </li>
+      <% end %>
     </ul>
   </div>
   </div>
   <!-- 右のarticle -->
   <div class="col m4 l4 s12 white" id='articles'>
-    <%= image_tag 'cars.jpg', class: 'h400' %>
+    <%= image_tag 'cars.jpg', class: 'h400 wid' %>
+    <div class="caption center-align">
+    <!-- <span class='caption center-align'> -->
+      <h5><b><%= link_to @right_article.title, article_path(@right_article) %></b></h5>
+    </div>
+    <!-- </span> -->
   </div>
 </div>
 
 
 <div class="row" data-no-turbolink >
 <br/>
+<!-- 左9 -->
+  <div class='col m9 l9 s9'>
+  <% @search_articles.each do |article| %>
+      <%= link_to article do %>
+        <div class="col s12 m6 l4">
+          <div class="card-panel hoverable h300 white lighten-5">
+            <div class="card-image waves-effect waves-block waves-light" style='height: 200px'>
 
-<% @search_articles.each do |article| %>
-    <%= link_to article do %>
-      <div class="col s12 m6 l4">
-        <div class="card-panel hoverable h300 white lighten-5">
-          <div class="card-image waves-effect waves-block waves-light" style='height: 200px'>
+              <%= image_tag article.image %>
+            </div>
 
-            <%= image_tag article.image %>
-          </div>
-
-          <div class="card-content" style="height: 5em">
-            <span class="card-title grey-text text-darken-4 truncate">
-            <%= article.title %>
-            </span>
+            <div class="card-content" style="height: 5em">
+              <span class="card-title grey-text text-darken-4 truncate">
+                <%= article.title %>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
+  <!-- 右3 -->
+  <div class="col m3 l3 s3 center">
+    <p class='around1'>Pickup!</p>    
+  </div>
 </div>
 
 <%= controller.controller_name %>
 
 </main>
 <%= debug(params) if Rails.env.development? %>
-
   <%= render 'shared/footer' %>
-
 </body>
 
 <script>

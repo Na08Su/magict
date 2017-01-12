@@ -58,6 +58,12 @@ img .tooltipped {
   background-color: red;
 }
 
+.w438 {
+  width: 438.34px;
+}
+.wid {
+  width: 100%;
+}
 
 
 .none {
@@ -67,6 +73,10 @@ img .tooltipped {
 .pad0 {
   padding: 0;
 }
+.pad10 {
+  padding: 10px;
+}
+
 
 /* コンポーネント */
 .h200{
@@ -182,7 +192,6 @@ img .tooltipped {
   z-index: 99;
 }
 
-//
 /*     article 記事       */
 //
 body.articles {
@@ -222,12 +231,30 @@ body.articles {
 }
 .around:hover {
   border: medium solid white;
-  background-color: rgba(244, 99, 103,1.0);
+  background-color: rgba(227, 20, 62,1.0);
   color: white;
   transition: all 0.4s;
   font-weight: bold;
-
 }
+
+.around1 {
+  width: 300px;
+  border: medium solid gray;
+  margin: 0 auto;
+  padding: 15px;
+  color: gray;
+  font-weight: bold;
+    // text-align: center;
+}
+.around1:hover {
+  border: medium solid white;
+  background-color: rgba(14, 128, 241,1.0);
+  color: white;
+  transition: all 0.4s;
+  font-weight: bold;
+}
+
+
 .slider {
   // margin: 0;
 }

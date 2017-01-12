@@ -38,6 +38,7 @@ gem 'aws-sdk', '~> 2.3' # AWS
 
 group :development, :test do
   gem 'byebug'
+  gem 'rubocop'
 end
 
 group :development do
