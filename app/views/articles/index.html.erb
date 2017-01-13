@@ -32,12 +32,7 @@
   </div>
   <!-- <hr> -->
 </div>
-<!-- <div class="row">
-  <div class="center">
-    <%#= image_tag 'beta.jpg', class: 'logo center' %>
-    <p class='around'>Helloo!</p>
-  </div>
-</div> -->
+
 <div class="row">
   <div id='<%= "#{ controller.controller_name }" %>' class='col m8 l8 s12 white'>
   <div class="slider">
@@ -56,8 +51,10 @@
   </div>
   </div>
   <!-- 右のarticle -->
-  <div class="col m4 l4 s12 white" id='articles'>
-    <%= image_tag 'cars.jpg', class: 'h400 wid' %>
+  <div class="col m4 l4 s12 white" id='articles' style='position: relative;'>
+    <%= image_tag 'cars.jpg', class: 'h400 wid-full' %>
+    <span class="badge yellow white-text center" style='position: absolute; top: 0px; left: 0px; width: 150px; height: 35px; margin: 0; line-height: 36px;'><b>NEW!</b></span>
+
     <div class="caption center-align">
     <!-- <span class='caption center-align'> -->
       <h5><b><%= link_to @right_article.title, article_path(@right_article) %></b></h5>
@@ -80,6 +77,7 @@
             <div class="card-image waves-effect waves-block waves-light" style='height: 200px'>
 
               <%= image_tag article.image %>
+              <span class="badge pink white-text center" style='position: absolute; top: 0px; left: 0px; width: 100px; height: 35px; margin: 0; line-height: 36px;'><b>Check it!</b></span>
             </div>
 
             <div class="card-content" style="height: 5em">
@@ -100,7 +98,7 @@
       <br>
         <div class='card-panel hoverable white lighten-5 h300'>
           <div class="card-image waves-effect waves-block waves-light" style='height: 200px'>
-            <%= image_tag pick.image %>
+            <%= image_tag pick.image %><span class="badge green white-text center" style='position: absolute; top: 0px; left: 0px; width: 100px; height: 35px; margin: 0; line-height: 36px;'><b>PICKUP!</b></span>
           </div>
           <b><%= link_to pick.title, article_path(pick) %></b>
         </div>
