@@ -15,11 +15,7 @@ MAGICK マジックエッグ MGICK MAGIK TREE CODE TREE MAGICTRE(マジクトレ
 2.カレンダーに日記をつけることができる機能
 sshミスる
 
-
-
-
 sendgridの使い方
-
 
 For those who don't have paid Mandrill account, this section is for you as you now can use Sendgrid instead for free (first 12K emails/month).
 Step 1: Go to Sendgrid to register a new account for free plan (12K emails/month). You can use the random info for address, company, website.
@@ -94,7 +90,6 @@ end
 Step 13: Open the User model and a callback function to send email after create new user:
 
 
-
 class User < ActiveRecord::Base
   ## ...
   after_create :send_notification
@@ -103,3 +98,12 @@ class User < ActiveRecord::Base
     MyMailer.new_user(self).deliver
   end
 end
+
+*現在のMAGICTの目標地点
+
+プログラム初心者, 中級者  -> rubyを動画で学んでもらう
+エンジニアのチーム開発    -> エンジニアコミュニティーとしてのプラットフォーム(何か作りたいので一緒に組みましょう, そのプロジェクトの仲間に入れてください!github連携)
+エンジニアと企業の橋渡し役 -> 就職、転職のプラットフォーム（企業側がユーザーのエンジニアレベルを可視化できるページを作成, ポートフォリオ、チーム開発経験）
+
+メディア -> アルゴリズムクイズ、ruby, rails、周辺技術のメディア
+アルゴリズムクイズでは問題を解くだけではなく、どういった時に使えるかなど事例を交えつつ日常の観点から馴染みやすくなるように触れていく
