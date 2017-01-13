@@ -32,12 +32,12 @@
   </div>
   <!-- <hr> -->
 </div>
-<div class="row">
+<!-- <div class="row">
   <div class="center">
     <%#= image_tag 'beta.jpg', class: 'logo center' %>
     <p class='around'>Helloo!</p>
   </div>
-</div>
+</div> -->
 <div class="row">
   <div id='<%= "#{ controller.controller_name }" %>' class='col m8 l8 s12 white'>
   <div class="slider">
@@ -46,9 +46,9 @@
         <li>
           <%= link_to image_tag(move.image), article_path(move) %>
           <div class="caption center-align">
-            <h5><%= move.title %></h5>
+            <h2><%= move.title %></h2>
 
-            <h5 class="light grey-text text-lighten-3">Check it!!!</h5>
+            <h4 class="light grey-text text-lighten-3">Check it</h4>
           </div>
         </li>
       <% end %>
@@ -70,7 +70,9 @@
 <div class="row" data-no-turbolink >
 <br/>
 <!-- 左9 -->
-  <div class='col m9 l9 s9'>
+  <div class='col s12 m9 l9 center'>
+  <p class='around center'><b><i class='material-icons'>feedback</i>NEW</b></p>
+
   <% @search_articles.each do |article| %>
       <%= link_to article do %>
         <div class="col s12 m6 l4">
@@ -82,7 +84,7 @@
 
             <div class="card-content" style="height: 5em">
               <span class="card-title grey-text text-darken-4 truncate">
-                <%= article.title %>
+                <b><%= article.title %></b>
               </span>
             </div>
           </div>
@@ -92,8 +94,17 @@
   </div>
 
   <!-- 右3 -->
-  <div class="col m3 l3 s3 center">
-    <p class='around1'>Pickup!</p>    
+  <div class="col s12 m3 l3">
+    <p class='around1 center'><b><i class='material-icons'>trending_up</i>Pickup!</b></p>
+    <% @pick_up.each do |pick| %>
+      <br>
+        <div class='card-panel hoverable white lighten-5 h300'>
+          <div class="card-image waves-effect waves-block waves-light" style='height: 200px'>
+            <%= image_tag pick.image %>
+          </div>
+          <b><%= link_to pick.title, article_path(pick) %></b>
+        </div>
+    <% end %>
   </div>
 </div>
 

@@ -37,6 +37,8 @@
       <!-- ハンバーガーアイコン -->
       <ul class="side-nav" id="mobile-demo">
         <li><%= link_to "コース一覧", root_path %></li>
+        <li><%= link_to 'Ruby記事まとめ', articles_path  %></li>
+
 
         <% if !user_signed_in? %>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
@@ -45,20 +47,16 @@
         <% else %>
         <!-- ログインしてたら....以下 -->
           <li>
-            <a class="dropdown-button" href="#" data-activates="dropdown2">ドロップダウン</a>
+            <a class="dropdown-button valign-wrapper" href="#" data-activates="dropdown2">
+            <%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-small" %>&nbsp;
+            <%= current_user.name %><i class="material-icons right">arrow_drop_down</i></a>
             <ul class='dropdown-content' id='dropdown2'>
-                <li>少し待ってください</li>
-                <li class='divider'>ログアウト</li>
-
-
-                <%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-small" %>&nbsp;
-              <%= current_user.name %><i class="material-icons right">arrow_drop_down</i>
+              <li><%= link_to 'マイページ', myprojects_path %></li>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </ul>
-          <li>検索</li>
+          </li>
         <% end %>
-
       </ul>
-
     </div>
   </div>
 </nav>

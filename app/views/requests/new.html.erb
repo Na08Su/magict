@@ -1,9 +1,6 @@
 <%= form_for @request do |f| %>
       <div class="row">
         <div class="input-field col s12">
-<!--           <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-           -->
           <%= f.text_field :title, class: 'validate', id: '', placeholder: 'タイトル' %>
         </div>
         <div class="input-field col s12">
@@ -12,12 +9,6 @@
         <div class='input-field col s12'>
           <b><%= f.submit '送信', class: 'waves-effect waves-light btn-large  cyan lighten-4 z-depth-4' %></b>
         </div>
-<!-- 
-        <a class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>button</a> -->
-
-
       </div>
-
-
   </div>
 <% end %>
