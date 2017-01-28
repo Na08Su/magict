@@ -2,9 +2,11 @@
 <html>
 <head>
   <title>MAGICT｜Rubyが動画で学べる!</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %><%# app/assets/javascripts/application.js（PC 用）を読み込む %>
+  <%= stylesheet_link_tag    'smart_phone/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'smart_phone/application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width">
+
   <%= yield :head %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="//load.sumome.com/" data-sumo-site-id="d2a0af3875c634fc673e1e3390ba94e9c1e3b49a5776a30febcd1b22923c14b9" async="async"></script>
@@ -36,6 +38,7 @@
   <%= render 'shared/message' %>
     <main>
       <div class="container">
+      <p>スマホ版</p>
         <%= yield %>
       </div>
 
@@ -48,13 +51,3 @@
 
 </body>
 </html>
-
-<!-- ビューの中で処理を切り替えるには、下記のようにします。 -->
-
-<%# if request.smart_phone? %>
-  <!-- スマートフォン特有の表示 -->
-<%# else %>
-  <!-- PC 特有の表示 -->
-<%# end %>
-
-

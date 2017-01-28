@@ -22,3 +22,11 @@ class ArticlesController < ApplicationController
 		@q = Article.search(params[:q]) # articleでの共通headerで使うため
 	end
 end
+
+# コントローラの中で処理を切り替えるには、下記のようにします。
+
+# if request.smart_phone?
+#   # スマートフォン特有の処理
+# else
+#   # PC 特有の処理
+# end
