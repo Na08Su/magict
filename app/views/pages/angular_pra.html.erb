@@ -1,0 +1,50 @@
+<h1>angularの練習</h1>
+
+{{ 8+9 }}
+
+<p>1回</p>
+<input type='text' ng-model='name'>
+
+<p>こんにちは{{ name }}</p>
+<p>こんにちは{{ 5 * 3 }}</p>
+
+<hr>
+
+<p>2回</p>
+<div ng-controller='mainCtrl'>
+	<p>{{users.length}}users</p>
+	<ul>
+		<li ng-repeat='user in users'>
+			{{user.name}} {{user.score}}
+		</li>
+	</ul>
+
+</div>
+
+<html ng-app="myApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.1/angular-sanitize.min.js"></script>
+<script>
+  angular.module('myApp', ['ngSanitize']).controller('MyController', function($scope) {
+    // 分かりやすく初期値を入れています
+    $scope.content = '## hoge';
+    $scope.preview = marked($scope.content);
+    
+    // テキストエリアに変更があった場合の処理
+    $scope.parseMarkdown = function(){
+      // マークダウン形式に変更
+      $scope.preview = marked($scope.content);
+    }
+  });
+</script>
+
+</head>
+<body ng-controller="MyController">
+  <div>
+    <textarea ng_change="parseMarkdown()" ng_model="content"></textarea>
+    <div ng-bind-html="preview"></div>
+  </div>
+</body>
+</html>

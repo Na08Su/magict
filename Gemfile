@@ -23,7 +23,13 @@ gem 'activeadmin', github: 'activeadmin' # task5
 gem 'active_skin'
 
 gem 'paperclip', '~> 5.0' # 画像アップロード
-gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+gem 'redcarpet', '~> 3.3', '>= 3.3.4' # markdown
+
+gem "angular-rails-engine"
+gem 'marked-rails' # markdownをparseしてくれる
+
+gem 'execjs'
+
 gem 'coderay', '~> 1.1'
 
 gem 'friendly_id', '~> 5.1'
