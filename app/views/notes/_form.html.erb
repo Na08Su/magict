@@ -1,0 +1,40 @@
+<html ng-app="myApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.1/angular-sanitize.min.js"></script>
+<script>
+  angular.module('myApp', ['ngSanitize']).controller('MyController', function($scope) {
+    // 分かりやすく初期値を入れています
+    $scope.content = '## 初期値';
+    $scope.preview = marked($scope.content); //marked($scope.content);
+    
+    // テキストエリアに変更があった場合の処理
+    $scope.parseMarkdown = function(){
+      // マークダウン形式に変更
+      $scope.preview = marked($scope.content); //リアルタイムに反映
+    }
+  });
+</script>  
+</head>
+<body ng-controller="MyController">
+<%= form_for(@note) do |f| %>
+  <div class="field">
+    <%#= f.label :content %><br>
+    <%= f.text_area :content, "ng-model" => "content", "ng-change" => "perseMarkdown()" %>
+      <!--ng-bind-htmlはHTML をエスケープさせずに出力する -->
+      <!-- ng-bind-htmlは、別のモジュール（ngSanitize）に分かれているため、angular-sanitize.min.js を index.html で参照し、依存するモジュールとして記述する必要がある -->
+      <div ng-bind-html="preview"></div><!-- placeholder -->
+      {{7 *9}}
+      <p>{{ content }}</p>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+  <div>
+    <!-- <textarea ng_change="parseMarkdown()" ng_model="content"></textarea> -->
+  </div>
+</body>
+</html>

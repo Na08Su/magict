@@ -1,0 +1,26 @@
+{
+  "name": "natsuki",
+  "version": "1.0.0",
+  "description": "お試し",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "marked": "^0.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NatsukiSugawara/code4pro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NatsukiSugawara/code4pro/issues"
+  },
+  "homepage": "https://github.com/NatsukiSugawara/code4pro#readme"
+}

@@ -49,5 +49,11 @@ class PagesController < ApplicationController
     # @result = kekka[@state] # 結果を出力
   end
 
+  def angular_pra
+        render :layout => false
+
+
+  end
+
 end
 

@@ -11,6 +11,7 @@ class RequestsController < ApplicationController
 
 	def new
 		@request = current_user.requests.build # Request.new
+
 	end
 
 	def create
