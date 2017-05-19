@@ -57,7 +57,9 @@
 
     <div class="caption center-align">
     <!-- <span class='caption center-align'> -->
+    <% if @right_article %>
       <h5><b><%= link_to @right_article.title, article_path(@right_article) %></b></h5>
+    <% end %>
     </div>
     <!-- </span> -->
   </div>
