@@ -6,4 +6,4 @@
 //= require jquery.timeago
 //= require turbolinks
 //= require_tree .
-
+//= require xray

@@ -14,6 +14,8 @@
           <li><%= link_to "新規登録", new_user_registration_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
           <li><b><%= link_to 'Ruby記事', articles_path  %></b></li>
+          <li><%= link_to "共同ライブコーディング", "#" %></li>
+
 
         <% else %>
         <!-- 右端のリストが表示される -->
@@ -26,14 +28,15 @@
               <li><%= link_to "受講している動画", myprojects_path %></li>
               <li><%= link_to '動画のリクエスト', requests_path  %></li>
               <li><%= link_to 'Ruby記事まとめ', articles_path  %></li>
-              
+              <li><%= link_to "共同ライブコーディング", "#" %></li>
+
               <li class="divider"></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
         <% end %>
       </ul>
-      
+
       <!-- ハンバーガーアイコン -->
       <ul class="side-nav" id="mobile-demo">
         <li><%= link_to "コース一覧", root_path %></li>
@@ -41,6 +44,7 @@
 
 
         <% if !user_signed_in? %>
+          <li><%= link_to "MAGICTとは?", pages_landing_path, method: 'get' %></li>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
           <li><b><%= link_to '記事', articles_path  %></b></li>
@@ -67,4 +71,3 @@
   $(".dropdown-button").dropdown();
   $('.button-collapse').sideNav(); //ハンバーガーが開く
 </script>
-

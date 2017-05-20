@@ -50,10 +50,10 @@ group :development do
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'xray-rails'
 end
 
 group :production do
   gem 'pg' # heroku
   gem 'rails_12factor'
 end
-
