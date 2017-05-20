@@ -1,8 +1,5 @@
 class ApplicationController < ActionController::Base
-	include Jpmobile::ViewSelector
-
   protect_from_forgery with: :exception
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -13,5 +10,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
   end
 
-  
+  private
+
 end
