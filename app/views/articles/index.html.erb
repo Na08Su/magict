@@ -56,8 +56,10 @@
     <span class="badge yellow white-text center" style='position: absolute; top: 0px; left: 0px; width: 150px; height: 35px; margin: 0; line-height: 36px;'><b>NEW!</b></span>
 
     <div class="caption center-align">
-    <!-- <span class='caption center-align'> -->
-      <h5><b><%= link_to @right_article.title, article_path(@right_article) %></b></h5>
+      <!-- <span class='caption center-align'> -->
+      <% if @right_article %>
+        <h5><b><%= link_to @right_article.title, article_path(@right_article) %></b></h5>
+      <% end %>
     </div>
     <!-- </span> -->
   </div>
